@@ -3,7 +3,7 @@ import CharacterOption from './CharacterOption';
 
 
 
-const CharacterList = ({characters}) => {
+const CharacterList = ({characters, searchInput}) => {
 
   // const [charactersAvailable, setCharactersAvailable] = useState('');
 
@@ -21,10 +21,20 @@ const CharacterList = ({characters}) => {
   //   }
 
   return (
-    <div>
+    <div className='character-list-div'>
         {/* {charactersAvailable.valueOf} */}
-        {characters.map(character => (
-          <CharacterOption imageSource={character.img} characterName={character.name}/>
+        {characters.filter((character) => {
+          if(searchInput === ''){
+            return character;
+          }
+          else if(character.name.toLowerCase().includes(searchInput.toLowerCase()) || character.nickname.toLowerCase().includes(searchInput.toLowerCase())){ // if the name or nickname of the character contains the input being searched for it will return them
+            return character;      
+          }
+          else{
+            return null;
+          }
+        }).map(character => (
+          <CharacterOption key={character.char_id} imageSource={character.img} characterName={character.name}/>
         ))}
 
     </div>

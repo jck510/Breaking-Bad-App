@@ -6,14 +6,15 @@ import CharacterList from './CharacterList'
 import axios from 'axios'
 
 
-// FOR NEXT TIME TRY TO FIND OUT HOW TO FILTER CHARACTERS WITH EACH KEY PRESS. PROBABLY EVENT LISTENERS. AND ALSO FIX BUG WHERE GOING BACK TO THE CHARACTER PAGE MAKES IT BLANK LIKELY AN ISSUE WITH THE USEEFFECT
 const CharactersPage = () => {
 
   const [characters, setCharacters] = useState({});
+  const [charactersLoaded, setCharactersLoaded] = useState(false);
+  const [searchInput, setSearchInput] = useState('');
 
-  //will call the function once
-  useEffect(() => {
-    getCharacterList();
+   //will call the function once
+   useEffect(() => {
+     getCharacterList();
   }, [])
 
   
@@ -22,6 +23,7 @@ const CharactersPage = () => {
       (response) => {        
         console.log(response);
         setCharacters(response.data);
+        setCharactersLoaded(true);
         //console.log('success');
       
       }).catch((error) => {
@@ -34,13 +36,18 @@ const CharactersPage = () => {
 
   return (
     <div className='characters-page-div'>
-      <div className='character-page-header'>
-        <Link to='/'><FaRegArrowAltCircleLeft /></Link>
-        <h1 className='page-title'>Characters</h1>
-        <input type="text" placeholder='Search for a Character' />
+      <div className='characters-page-header'>
+        <div className='characters-page-header-back-and-title'>
+          <Link to='/'><FaRegArrowAltCircleLeft className='back-button' color='#FFFFFF' size='40px'/></Link>
+          <h1 className='page-title'>Characters</h1>
+        </div>
+        <input type="text" placeholder='Search for a Character' onChange={(e) => {
+          setSearchInput(e.target.value);
+        }} />
       </div> 
     
-    {characters !== [] && <CharacterList characters={characters}/>}
+    
+    {charactersLoaded && <CharacterList characters={characters} searchInput={searchInput}/>}
     
       
     </div>
