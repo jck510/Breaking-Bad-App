@@ -7,6 +7,8 @@ import QuotesPage from './components/QuotesPage';
 import DeathsPage from './components/DeathsPage';
 
 function App() {
+  
+
   return (
     <div className="App">
 
