@@ -145,8 +145,12 @@ code {
 }
 
 .characters-page-div {
+  position: absolute;
   background-color: var(--background-color);
   overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  
 }
 
 .characters-page-header {
@@ -191,12 +195,20 @@ code {
   margin-right: 5px;
 }
 
+.character-list-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
 .character-list-div {
   margin: 0 auto;
   margin-top: 30px;
   display: grid;
   justify-content: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4,320px);
+  
 }
 
 .character-option-div {

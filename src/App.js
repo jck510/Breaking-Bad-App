@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import EpisodeDetailsPage from './components/EpisodeDetailsPage';
 import QuotesPage from './components/QuotesPage';
 import DeathsPage from './components/DeathsPage';
+import CharacterDetailsPage from './components/CharacterDetailsPage';
 
 function App() {
   
@@ -19,6 +20,7 @@ function App() {
       <Route exact path='/episode-details' element={<EpisodeDetailsPage />}/>
       <Route exact path='/quotes' element={<QuotesPage />}/>
       <Route exact path='/deaths' element={<DeathsPage />}/>
+      <Route exact path='/characters/:name' element={<CharacterDetailsPage />} />
       </Routes>
     </div>
   );

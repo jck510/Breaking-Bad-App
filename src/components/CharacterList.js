@@ -21,7 +21,8 @@ const CharacterList = ({characters, searchInput}) => {
   //   }
 
   return (
-    <div className='character-list-div'>
+    <div className='character-list-wrapper'>
+      <div className='character-list-div'>
         {/* {charactersAvailable.valueOf} */}
         {characters.filter((character) => {
           if(searchInput === ''){
@@ -38,6 +39,8 @@ const CharacterList = ({characters, searchInput}) => {
         ))}
 
     </div>
+    </div>
+    
   )
 }
 
