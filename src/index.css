@@ -220,6 +220,8 @@ code {
   border-radius: 5px;
   text-shadow: black 1px 2px;
   box-shadow: black 5px 5px 10px;
+  
+  
 }
 
 .character-option-div img {
@@ -227,9 +229,20 @@ code {
   height: 250px;
 }
 
+.character-option-link {
+  text-decoration: none;
+}
+
 .character-option-div:hover {
   cursor: pointer;
   height: 305px;
   width: 305px;
   margin: 25px;
+}
+
+.character-details-page-div {
+  background-color: var(--background-color);
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
