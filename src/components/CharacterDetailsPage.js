@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FaRegArrowAltCircleLeft } from 'react-icons/fa'
 
 const CharacterDetailsPage = ( {character} ) => {
@@ -47,11 +47,14 @@ const CharacterDetailsPage = ( {character} ) => {
 
   return (
     <div className='character-details-page-div'>
-      <FaRegArrowAltCircleLeft className='back-button' size='40px'/>
+      <Link to='/characters'><FaRegArrowAltCircleLeft className='back-button' size='40px'/></Link>
       {/* The following checks if the page details were loaded properly to display information to the user or not about the character that was queried */}
       {isLoaded ?
       <div className='character-details-loaded-div'>
       <img alt='' src={characterDetails.img} />
+
+      <div className='character-details-details'>
+
       <h1>{characterDetails.name}</h1>
       <h2>"{characterDetails.nickname}"</h2>
       {/* Be prepared to remove birthday for characters who have an undefined birthday */}
@@ -72,18 +75,40 @@ const CharacterDetailsPage = ( {character} ) => {
       :
       <div className='character-details-spoiler-div'>
         <h3>Status: {characterDetails.status}</h3>
-        {/* Next time will add a conditional for characters that do not appear in breaking bad. will do the same for better call saul */}
-        <h3>Appears in the following Breaking Bad Seasons: {characterDetails.appearance.map((app) => (
-          app + ', '
-        ))}</h3>
+        {/* Breaking Bad Appearance Section */}
+        {(characterDetails.appearance.length > 0) ?
+        <h3>Appears in the following Breaking Bad Seasons: {characterDetails.appearance.map((app) => {
+          if(characterDetails.appearance[characterDetails.appearance.length - 1] !== app){ // will add a comma to each of the seasons that the character appears in except for the last one
+            return app + ', ';
+          }
+          else{
+            return app;
+          }
+          })}</h3>
+        :
+        <h3>{characterDetails.name} does not appear in Breaking Bad</h3>
+        }
+        {/* Better Call Saul Appearance Section */}
+        {(characterDetails.better_call_saul_appearance.length > 0) ?
+        <h3>Appears in the following Better Call Saul Seasons: {characterDetails.better_call_saul_appearance.map((app) => {
+          if(characterDetails.better_call_saul_appearance[characterDetails.appearance.length - 1] !== app){ // will add a comma to each of the seasons that the character appears in except for the last one
+            return app + ', ';
+          }
+          else{
+            return app;
+          }
+          })}</h3>
+        :
+        <h3>{characterDetails.name} has not appeared in Better Call Saul</h3>
+        }
         <button onClick={() => setShowSpoilers(false)}>Show Less Info</button>
       </div>
       }
       </div>
+      </div>
       :
       <h1>Could not find character details!</h1>
       }
-
 
     </div>
   )

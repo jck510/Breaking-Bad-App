@@ -241,8 +241,52 @@ code {
 }
 
 .character-details-page-div {
+  display: flex;
   background-color: var(--background-color);
   position: absolute;
   height: 100%;
   width: 100%;
+}
+
+.character-details-page-div .back-button{
+  margin-left: 10px;
+}
+
+.character-details-loaded-div {
+  display: flex;
+  justify-content: center;
+
+}
+
+.character-details-loaded-div img {
+  height: 100%;
+  width: auto;
+}
+
+.character-details-spoiler-div {
+  background-color: var(--top-bar-color);
+  justify-content: center;
+  padding: 40px;
+  
+}
+
+.character-details-spoiler-div button{
+  background-color: var(--button-color);
+  margin-top: 20px;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.character-details-spoiler-div button:hover {
+  background-color: var(--color-three);
+}
+
+.character-details-details h1{
+  font-size: 50px;
+}
+
+.character-details-details h2{
+  font-size: 30px;
 }

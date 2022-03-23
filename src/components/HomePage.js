@@ -5,6 +5,7 @@ const HomePage = () => {
   return (
     <div className='home-page'>
         <div className='main-nav-bar-div'>
+          {/* will change the link for the h1 to a refresh onclick listener */}
             <Link to='/' className='links'><h1>Breaking Bad Database</h1></Link>
             <div className='nav-bar-buttons-div'>
             <Link to='/characters'><button>Characters</button></Link>
