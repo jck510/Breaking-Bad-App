@@ -211,6 +211,7 @@ code {
   
 }
 
+
 .character-option-div {
   height: 300px;
   width: 300px;
@@ -221,6 +222,10 @@ code {
   text-shadow: black 1px 2px;
   box-shadow: black 5px 5px 10px;
   
+  
+}
+
+.character-option-div-wrapper{
   
 }
 
@@ -246,6 +251,7 @@ code {
   position: absolute;
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .character-details-page-div .back-button{
@@ -258,15 +264,23 @@ code {
 
 }
 
+.character-details-loaded-div h3 {
+  margin-top: 10px;
+}
+
 .character-details-loaded-div img {
   height: 100%;
   width: auto;
+  max-width: 600px;
 }
+
+
 
 .character-details-spoiler-div {
   background-color: var(--top-bar-color);
   justify-content: center;
   padding: 40px;
+  margin-top: 30px;
   
 }
 
@@ -283,10 +297,35 @@ code {
   background-color: var(--color-three);
 }
 
+.character-details-details {
+  margin: 50px;
+  margin-left: 175px;
+  margin-right: 175px;
+  width: 50%;
+}
+
 .character-details-details h1{
   font-size: 50px;
+  margin-bottom: 10px;
 }
 
 .character-details-details h2{
   font-size: 30px;
+}
+
+@media screen and (min-width: 1080px) {
+  .character-details-loaded-div img {
+    width: 500px;
+    height: 100%;
+  }
+  
+}
+
+/* Mobile view */
+@media screen and (max-width: 480px){
+  .character-details-loaded-div img {
+    width: 300px;
+    height: 400px;
+
+  }
 }

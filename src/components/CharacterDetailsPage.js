@@ -13,12 +13,13 @@ const CharacterDetailsPage = ( {character} ) => {
   const [characterDetails, setCharacterDetails] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [showSpoilers, setShowSpoilers] = useState(false);
+  const [isNonExistentDomain, setIsNonExistentDomain] = useState(true); // assumes that the domain name is non existent until proven otherwise
 
 
   // will execute the getCharacterDetails function
   useEffect(() => {
     getCharacterDetails(queryName);
-  }, []);
+  }, [queryName]);
   
   const getCharacterDetails = (query) => { // a function to fetch the data from the api about the given character
     axios.get(`${process.env.REACT_APP_API_URL}characters?name=${query}`).then(
@@ -26,10 +27,15 @@ const CharacterDetailsPage = ( {character} ) => {
         console.log(response);
         setCharacterDetails(response.data[0]);
         setIsLoaded(true);
+        if(response.data[0] !== 'undefined'){ // if the response data does not return an undefined value then the domain exists and the query can be completed successfully to display a character
+          setIsNonExistentDomain(false);
+        }
+        
         console.log(response.data[0])
       }
     ).catch((error) => {
       console.log(error);
+      console.log('whoops');
     })
   }
 
@@ -47,9 +53,10 @@ const CharacterDetailsPage = ( {character} ) => {
 
   return (
     <div className='character-details-page-div'>
-      <Link to='/characters'><FaRegArrowAltCircleLeft className='back-button' size='40px'/></Link>
+      <div><Link to='/characters'><FaRegArrowAltCircleLeft to='/characters' className='back-button' size='40px'/></Link></div>
       {/* The following checks if the page details were loaded properly to display information to the user or not about the character that was queried */}
-      {isLoaded ?
+      
+      {(isLoaded && !isNonExistentDomain) &&
       <div className='character-details-loaded-div'>
       <img alt='' src={characterDetails.img} />
 
@@ -60,10 +67,10 @@ const CharacterDetailsPage = ( {character} ) => {
       {/* Be prepared to remove birthday for characters who have an undefined birthday */}
       <h3>{(characterDetails.birthday !== 'Undefined') && `Birthday: ${characterDetails.birthday}`}</h3>
       <div className='occupation-div'>
-      <h3>{(characterDetails.occupation.length > 1) ? `Occupations: ` : `Occupation: `}</h3>
-      {characterDetails.occupation.map((occ) => (
-        <h3 key={occ}>{occ}</h3>
-      ))}
+      <h3>{(characterDetails.occupation.length > 1) ? `Occupations: ${characterDetails.occupation.map((occ) => (
+        ' ' + occ
+      ))}` : `Occupation: ${characterDetails.occupation[0]}`}</h3>
+      
       </div>
       <h3>Portrayed by: {characterDetails.portrayed}</h3>
       {!showSpoilers ?
@@ -91,7 +98,7 @@ const CharacterDetailsPage = ( {character} ) => {
         {/* Better Call Saul Appearance Section */}
         {(characterDetails.better_call_saul_appearance.length > 0) ?
         <h3>Appears in the following Better Call Saul Seasons: {characterDetails.better_call_saul_appearance.map((app) => {
-          if(characterDetails.better_call_saul_appearance[characterDetails.appearance.length - 1] !== app){ // will add a comma to each of the seasons that the character appears in except for the last one
+          if(characterDetails.better_call_saul_appearance[characterDetails.better_call_saul_appearance.length - 1] !== app){ // will add a comma to each of the seasons that the character appears in except for the last one
             return app + ', ';
           }
           else{
@@ -99,16 +106,19 @@ const CharacterDetailsPage = ( {character} ) => {
           }
           })}</h3>
         :
-        <h3>{characterDetails.name} has not appeared in Better Call Saul</h3>
+        <h3>As of Season 4, {characterDetails.name} has not appeared in Better Call Saul</h3>
         }
         <button onClick={() => setShowSpoilers(false)}>Show Less Info</button>
       </div>
       }
       </div>
       </div>
-      :
-      <h1>Could not find character details!</h1>
+    }
+      {!isLoaded &&
+      <div>Loading Bar goes here</div>
       }
+
+      {isNonExistentDomain && <h1>Could not find character details!</h1>}
 
     </div>
   )
