@@ -186,6 +186,7 @@ code {
   height: auto;
   margin-top: 10px;
   margin-right: 10px;
+  cursor: pointer;
   
 }
 
@@ -312,6 +313,32 @@ code {
 .character-details-details h2{
   font-size: 30px;
 }
+
+.episode-details-page-div {
+  position: absolute;
+  background-color: var(--background-color);
+  height: 100%;
+  width: 100%;
+  
+}
+
+.standard-header {
+  display: flex;
+  align-items: center;
+  background-color: var(--top-bar-color);
+  font-size: 30px;
+  height: 100px;
+}
+
+.standard-header .back-button{
+  margin-left: 10px;
+}
+
+.header-extension {
+  background-color: var(--top-bar-color);
+}
+
+
 
 @media screen and (min-width: 1080px) {
   .character-details-loaded-div img {
