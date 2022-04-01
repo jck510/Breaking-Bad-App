@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FaRegArrowAltCircleLeft } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import CharacterOption from './CharacterOption'
+
 import CharacterList from './CharacterList'
 import axios from 'axios'
 
@@ -21,14 +21,14 @@ const CharactersPage = () => {
   const getCharacterList = () => {
     axios.get(`${process.env.REACT_APP_API_URL}characters`).then(
       (response) => {        
-        console.log(response);
+        //console.log(response);
         setCharacters(response.data);
         setCharactersLoaded(true);
         //console.log('success');
       
       }).catch((error) => {
-        //console.clear();
-        console.log(error);
+        console.clear();
+        // console.log(error);
         console.log('Error');
     })
   }

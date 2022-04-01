@@ -22,6 +22,7 @@ function App() {
       <Route exact path='/characters/:name' element={<CharacterDetailsPage />} />
       <Route exact path='/episode-details' element={<EpisodeDetailsPage />}/>
       <Route exact path='/episode-details/breaking-bad' element={<BreakingBadDetailsPage />}/>
+      <Route exact path='/episode-details/breaking-bad/season/:seasonnumber' element={<BreakingBadDetailsPage />}/>
       <Route exact path='/episode-details/better-call-saul' element={<BetterCallSaulDetailsPage />}/>
       <Route exact path='/quotes' element={<QuotesPage />}/>
       <Route exact path='/deaths' element={<DeathsPage />}/>

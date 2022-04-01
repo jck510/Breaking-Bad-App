@@ -6,7 +6,7 @@ const EpisodeDetailsPage = () => {
   return (
     <div className='episode-details-page-div'>
       <div className='standard-header'>
-        <FaRegArrowAltCircleLeft className='back-button'/>
+        <div><Link to='/'><FaRegArrowAltCircleLeft className='back-button'/></Link></div>
         <h1 className='page-title'>Episode Details</h1>
       </div>
 

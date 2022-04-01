@@ -79,10 +79,14 @@ code {
   margin-bottom: 15px;
 }
 
+
+
 .nav-bar-buttons-div button:hover{
   cursor: pointer;
   background-color: var(--color-three);
 }
+
+
 
 .main-photos-list {
   list-style: none;
