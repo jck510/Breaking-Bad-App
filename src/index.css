@@ -13,7 +13,8 @@
 * {
   margin: 0;
   padding: 0;
-  color: var(--text-color);
+  /* The following line is commented out for now to have text display on the white background for now */
+  /* color: var(--text-color); */ 
 }
 
 body {
@@ -81,8 +82,14 @@ code {
 
 
 
+
+
 .nav-bar-buttons-div button:hover{
   cursor: pointer;
+  background-color: var(--color-three);
+}
+
+.nav-bar-buttons-div .selected-button {
   background-color: var(--color-three);
 }
 
@@ -340,6 +347,10 @@ code {
 
 .header-extension {
   background-color: var(--top-bar-color);
+}
+
+.episode-option-div {
+  cursor: pointer;
 }
 
 

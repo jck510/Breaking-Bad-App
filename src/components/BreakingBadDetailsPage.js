@@ -11,26 +11,55 @@ const BreakingBadDetailsPage = () => {
   const [seasonFilter,setSeasonFilter] = useState('0');
   const [episodeList, setEpisodeList] = useState([]);
 
+  const [seasonOneClass, setSeasonOneClass] = useState('');
+  const [seasonTwoClass, setSeasonTwoClass] = useState('');
+  const [seasonThreeClass, setSeasonThreeClass] = useState('');
+  const [seasonFourClass, setSeasonFourClass] = useState('');
+  const [seasonFiveClass, setSeasonFiveClass] = useState('');
+
   useEffect(() => {
     verifyDomain(queryName);
     getEpisodeList();
   }, [queryName])
 
 
-  //FOR NEXT TIME WORK ON THE BUTTON COLOR COATING FOR THE SELECTED BUTTON, HAVE THE SITE REDIRECT TO THE BREAKING-BAD EXTENSION IF ITS AN INVALID EXTENSION USING AN ALERT WITH AN ONCLICK LISTENER THAT TAKES THE PAGE TO THE PROPER EXTENSION
+  // function in order to verify whether or not the domain extension was valid and if any filters are supposed to be currently selected
   const verifyDomain = (query) => {
     if(query.charAt(query.length - 1) === 'd'){
-      console.log('breaking-bad extension');
+      //console.log('breaking-bad extension');
       setSeasonFilter('0');
 
 
     }
     else if(parseInt(query.replace('episode-detailsbreaking-badseason','')) > 0 && parseInt(query.replace('episode-detailsbreaking-badseason','')) < 6){
-      console.log('season number extension');
+      // console.log('season number extension');
       setSeasonFilter(query.replace('episode-detailsbreaking-badseason', '')); // sets the season filter to the proper domain extension
+      switch(query.replace('episode-detailsbreaking-badseason', '')){ // switch statement to determine which extension is highlighted
+        case '1':
+          setSeasonOneClass('selected-button');
+          break;
+        case '2':
+          setSeasonTwoClass('selected-button');
+          break;
+        case '3':
+          setSeasonThreeClass('selected-button');
+          break;
+        case '4':
+          setSeasonFourClass('selected-button');
+          break;
+        case '5':
+          setSeasonFiveClass('selected-button');
+          break;
+        default:
+          break;
+
+      }
+
     }
     else{
-      console.log('invalid extension');
+      //console.log('invalid extension');
+      alert('Invalid season number, The page will be redirected to all seasons');
+      window.location = '/episode-details/breaking-bad';
     }
   }
 
@@ -41,16 +70,79 @@ const BreakingBadDetailsPage = () => {
         setEpisodeList(response.data);
       }
     ).catch((error) => {
-      console.log(error);
+      console.log('error');
+      console.clear();
     })
   }
 
   const toggleFilterPress = (filterPressed) => {
     if(filterPressed === seasonFilter){
       setSeasonFilter('0');
+      switch(filterPressed){
+        case '1':
+          setSeasonOneClass('');
+          break;
+        case '2':
+          setSeasonTwoClass('');
+          break;
+        case '3':
+          setSeasonThreeClass('');
+          break;
+        case '4':
+          setSeasonFourClass('');
+          break;
+        case '5':
+          setSeasonFiveClass('');
+          break;
+        default:
+          break;
+
+      }
+
+
     }
     else{
+      switch(seasonFilter){
+        case '1':
+          setSeasonOneClass('');
+          break;
+        case '2':
+          setSeasonTwoClass('');
+          break;
+        case '3':
+          setSeasonThreeClass('');
+          break;
+        case '4':
+          setSeasonFourClass('');
+          break;
+        case '5':
+          setSeasonFiveClass('');
+          break;
+        default:
+          break;
+      }
       setSeasonFilter(filterPressed);
+      switch(filterPressed){
+        case '1':
+          setSeasonOneClass('selected-button');
+          
+          break;
+        case '2':
+          setSeasonTwoClass('selected-button');
+          break;
+        case '3':
+          setSeasonThreeClass('selected-button');
+          break;
+        case '4':
+          setSeasonFourClass('selected-button');
+          break;
+        case '5':
+          setSeasonFiveClass('selected-button');
+          break;
+        default:
+          break;
+
+      }
     }
   }
 
@@ -63,11 +155,12 @@ const BreakingBadDetailsPage = () => {
         </div>
         <div className='header-extension'>
             <div className='nav-bar-buttons-div'>
-                <button onClick={() => toggleFilterPress('1')}>Season 1</button>
-                <button onClick={() => toggleFilterPress('2')}>Season 2</button>
-                <button onClick={() => toggleFilterPress('3')}>Season 3</button>
-                <button onClick={() => toggleFilterPress('4')}>Season 4</button>
-                <button onClick={() => toggleFilterPress('5')}>Season 5</button>
+                {/* The following links have a ternary operator that will determine whether the page needs to be reloaded to the season extension or go back to the base extension */}
+                <div><Link to={(seasonFilter !== '1') ? '/episode-details/breaking-bad/season/1' : '/episode-details/breaking-bad'}><button onClick={() => toggleFilterPress('1')} className={seasonOneClass}>Season 1</button></Link></div>
+                <div><Link to={(seasonFilter !== '2') ? '/episode-details/breaking-bad/season/2' : '/episode-details/breaking-bad'}><button onClick={() => toggleFilterPress('2')} className={seasonTwoClass}>Season 2</button></Link></div>
+                <div><Link to={(seasonFilter !== '3') ? '/episode-details/breaking-bad/season/3' : '/episode-details/breaking-bad'}><button onClick={() => toggleFilterPress('3')} className={seasonThreeClass}>Season 3</button></Link></div>
+                <div><Link to={(seasonFilter !== '4') ? '/episode-details/breaking-bad/season/4' : '/episode-details/breaking-bad'}><button onClick={() => toggleFilterPress('4')} className={seasonFourClass}>Season 4</button></Link></div>
+                <div><Link to={(seasonFilter !== '5') ? '/episode-details/breaking-bad/season/5' : '/episode-details/breaking-bad'}><button onClick={() => toggleFilterPress('5')} className={seasonFiveClass}>Season 5</button></Link></div>
             </div>
         </div>
 
