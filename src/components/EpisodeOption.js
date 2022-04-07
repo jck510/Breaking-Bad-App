@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const EpisodeOption = ( {episode} ) => {
-  console.log(episode);
+  // console.log(episode);
   return (
     <div className='episode-option-wrapper'>
       {/* <Link to={(episode.series === 'Breaking Bad') ? `/episode-details/breaking-bad/season/${episode.season.replace(' ', '')}/episode/${episode.episode}` : `/episode-details/better-call-saul/season/${episode.season}/episode/${episode.episode}`}> */}

@@ -36,11 +36,49 @@ const EpisodePage = () => {
                 (res) => {
                     console.log(res);
                     
-                    // for(let j = 0; j < res.data)
-                    // for(let i = 0; i < response.data[0].characters.length; i++){
-                    //     if(res.dataresponse.data[0].name.characters[i] )
-                    //     console.log(response.data[0].characters[i]);
-                    // }
+
+                    console.log(response.data[0].characters.length, '<- Length of characters in episode');
+                    
+                    for(let i = 0; i < response.data[0].characters.length; i++){ // for each character in the episode
+                      // console.log(i)
+                      // console.log(res.data.length);
+                        for(let j = 0; j < res.data.length; j++){ // for every character that exists in the breaking bad universe
+                          
+                          let backupName = response.data[0].characters[i].split(' ')[0]; // 
+                          // var backupName = '';
+                          // //switch statement necessary due to inconsistent character naming in the database
+                          // switch(response.data[0].characters[i]){
+                          //   case 'Mike Erhmantraut':
+                          //     backupName = 'Mike Ehrmantraut';
+                          //     break;
+                          //   case 'Kim Wexler':
+                          //     backupName = 'Kimberly Wexler';
+                          //     break;
+                          //   case 'Chuck McGill':
+                          //     backupName = 'Charles McGill';
+                          //     break;
+                          //   case 'Nacho Varga':
+                          //     backupName = 'Ignacio Varga';
+                          //     break;
+                          //   default:
+                          //     break;
+                          // }
+
+
+                          if(response.data[0].characters[i] === res.data[j].name || response.data[0].characters[i] === res.data[j].nickname || backupName === res.data[j].name || backupName === res.data[j].nickname){
+                            // console.log(i + 1);
+                            console.log(i + 1, res.data[j].name);
+
+                            characters.push(res.data[j]);
+              
+
+                          }
+                      
+                        }
+                        
+                        
+                    }
+                    setCharactersArray(characters);
                 }
             ).catch((error) =>{
                 console.log(error);
