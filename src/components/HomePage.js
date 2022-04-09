@@ -1,9 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
+import SpoilerWarningModal from './SpoilerWarningModal';
 
 const HomePage = () => {
+
+  const [spoilerPageActive, setSpoilerPageActive] = useState('');
+
+  // // function in order to process the what state that the spoiler modal should be in
+  // const processSpoilerActivation = (action) => {
+  //   if(action === 'quotes'){
+
+  //   }
+  //   else if(action === 'deaths'){
+
+  //   }
+  //   else if(action === 'cancel'){
+
+  //   }
+  // }
+
+  const declineSpoilers = () => {
+    setSpoilerPageActive('');
+  }
+  
+
   return (
+    <>
+    
     <div className='home-page'>
+
         <div className='main-nav-bar-div'>
           {/* will change the link for the h1 to a refresh onclick listener */}
           {/* The following links are wrapped in wrapper divs */}
@@ -11,8 +36,11 @@ const HomePage = () => {
             <div className='nav-bar-buttons-div'>
             <div><Link to='/characters'><button>Characters</button></Link></div>
             <div><Link to='/episode-details'><button>Episode Details</button></Link></div>
-            <div><Link to='/quotes'><button>Quotes</button></Link></div>
-            <div><Link to='/deaths'><button>Deaths</button></Link></div>
+            {/* The following lines are commented out to accomodate the spoiler warnings */}
+            {/* <div><Link to='/quotes'><button>Quotes</button></Link></div>
+            <div><Link to='/deaths'><button>Deaths</button></Link></div> */}
+            <button onClick={() => setSpoilerPageActive('quotes')}>Quotes</button>
+            <button onClick={() => setSpoilerPageActive('deaths')}>Deaths</button>
 
             </div>
           
@@ -31,7 +59,15 @@ const HomePage = () => {
         <div className='main-footer-div'>
 
         </div>
+        {/* {spoilerPageActive === 'quotes' && <SpoilerWarningModal sectionToAccess={spoilerPageActive} setSectionToAccess={() => setSpoilerPageActive}/>}
+        {spoilerPageActive === 'deaths' && <SpoilerWarningModal sectionToAccess={spoilerPageActive} setSectionToAccess={() => setSpoilerPageActive}/>} */}
+
+
+        
     </div>
+        {spoilerPageActive === 'quotes' && <SpoilerWarningModal sectionToAccess={spoilerPageActive} cancelAccess={declineSpoilers}/>}
+        {spoilerPageActive === 'deaths' && <SpoilerWarningModal sectionToAccess={spoilerPageActive} cancelAccess={declineSpoilers}/>}
+    </>
   )
 }
 

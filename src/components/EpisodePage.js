@@ -67,7 +67,8 @@ const EpisodePage = () => {
 
                           if(response.data[0].characters[i] === res.data[j].name || response.data[0].characters[i] === res.data[j].nickname || backupName === res.data[j].name || backupName === res.data[j].nickname){
                             // console.log(i + 1);
-                            console.log(i + 1, res.data[j].name);
+                            console.log(response.data[0].characters[i] === res.data[j].name, response.data[0].characters[i] === res.data[j].nickname, backupName === res.data[j].name, backupName === res.data[j].nickname)
+                            console.log(i + 1, res.data[j].name , response.data[0].characters[i], res.data[j].nickname, backupName);
 
                             characters.push(res.data[j]);
               
