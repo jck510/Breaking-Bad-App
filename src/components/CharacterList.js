@@ -3,7 +3,7 @@ import CharacterOption from './CharacterOption';
 
 
 
-const CharacterList = ({characters, searchInput}) => {
+const CharacterList = ({characters, searchInput, extensionType}) => {
 
   // const [charactersAvailable, setCharactersAvailable] = useState('');
 
@@ -35,7 +35,7 @@ const CharacterList = ({characters, searchInput}) => {
             return null;
           }
         }).map(character => (
-          <CharacterOption key={character.char_id} imageSource={character.img} characterName={character.name}/>
+          <CharacterOption key={character.char_id} imageSource={character.img} characterName={character.name} extensionType={extensionType}/>
         ))}
 
     </div>

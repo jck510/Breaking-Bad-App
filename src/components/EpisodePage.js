@@ -42,9 +42,13 @@ const EpisodePage = () => {
                     for(let i = 0; i < response.data[0].characters.length; i++){ // for each character in the episode
                       // console.log(i)
                       // console.log(res.data.length);
+                      let backupName = response.data[0].characters[i].split(' ')[0]; 
                         for(let j = 0; j < res.data.length; j++){ // for every character that exists in the breaking bad universe
                           
-                          let backupName = response.data[0].characters[i].split(' ')[0]; // 
+                          //this line was moved outside of this for loop
+                          // let backupName = response.data[0].characters[i].split(' ')[0];
+
+
                           // var backupName = '';
                           // //switch statement necessary due to inconsistent character naming in the database
                           // switch(response.data[0].characters[i]){

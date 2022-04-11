@@ -29,7 +29,9 @@ function App() {
       <Route exact path='/episode-details/better-call-saul/season/:seasonNumber' element={<BetterCallSaulDetailsPage />}/>
       <Route exact path='/episode-details/id/:episodeId' element={<EpisodePage />}/>
       <Route exact path='/quotes' element={<QuotesPage />}/>
+      <Route exact path='/quotes/:name' element={<QuotesPage />}/>
       <Route exact path='/deaths' element={<DeathsPage />}/>
+
       
 
       </Routes>

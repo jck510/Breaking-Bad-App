@@ -47,7 +47,7 @@ const CharactersPage = () => {
       </div> 
     
     
-    {charactersLoaded && <CharacterList characters={characters} searchInput={searchInput}/>}
+    {charactersLoaded && <CharacterList characters={characters} searchInput={searchInput} extensionType='/characters/'/>}
     
       
     </div>
