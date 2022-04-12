@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { FaRegArrowAltCircleLeft } from 'react-icons/fa'
+import InvalidPage from './InvalidPage';
 
 const CharacterDetailsPage = ( {character} ) => {
 
@@ -13,7 +14,7 @@ const CharacterDetailsPage = ( {character} ) => {
   const [characterDetails, setCharacterDetails] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [showSpoilers, setShowSpoilers] = useState(false);
-  const [isNonExistentDomain, setIsNonExistentDomain] = useState(true); // assumes that the domain name is non existent until proven otherwise
+  const [isNonExistentDomain, setIsNonExistentDomain] = useState(false); // assumes that the domain is valid until it finds that it is not
 
 
   // will execute the getCharacterDetails function
@@ -25,13 +26,20 @@ const CharacterDetailsPage = ( {character} ) => {
     axios.get(`${process.env.REACT_APP_API_URL}characters?name=${query}`).then(
       (response) => {
         console.log(response);
-        setCharacterDetails(response.data[0]);
-        setIsLoaded(true);
-        if(response.data[0] !== 'undefined'){ // if the response data does not return an undefined value then the domain exists and the query can be completed successfully to display a character
-          setIsNonExistentDomain(false);
+        if(response.data.length === 0){
+          setIsNonExistentDomain(true);
         }
+        else{
+          setCharacterDetails(response.data[0]);
+          setIsLoaded(true);
+        // if(response.data[0] !== 'undefined'){ // if the response data does not return an undefined value then the domain exists and the query can be completed successfully to display a character
+        //   setIsNonExistentDomain(false);
+        // }
         
-        console.log(response.data[0])
+          console.log(response.data[0])
+        }
+
+        
       }
     ).catch((error) => {
       console.log(error);
@@ -52,6 +60,9 @@ const CharacterDetailsPage = ( {character} ) => {
   // }
 
   return (
+    <>
+    
+    {isNonExistentDomain ? <InvalidPage /> :
     <div className='character-details-page-div'>
       <div><Link to='/characters'><FaRegArrowAltCircleLeft to='/characters' className='back-button' size='40px'/></Link></div>
       {/* The following checks if the page details were loaded properly to display information to the user or not about the character that was queried */}
@@ -118,9 +129,11 @@ const CharacterDetailsPage = ( {character} ) => {
       <div>Loading Bar goes here</div>
       }
 
-      {isNonExistentDomain && <h1>Could not find character details!</h1>}
+      
 
     </div>
+    }
+    </>
   )
 }
 

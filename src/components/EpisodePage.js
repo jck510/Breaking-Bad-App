@@ -3,33 +3,43 @@ import React, { useEffect, useState } from 'react'
 import { FaRegArrowAltCircleLeft } from 'react-icons/fa'
 import { Link, useLocation } from 'react-router-dom';
 import CharacterList from './CharacterList';
+import InvalidPage from './InvalidPage';
 
 const EpisodePage = () => {
 
     const queryName = (useLocation().pathname.replaceAll('/', '').replace('episode-detailsid', ''));
     const [episodeDetails, setEpisodeDetails] = useState([]);
     const [charactersArray, setCharactersArray] = useState([]);
+    const [invalidCall, setInvalidCall] = useState(false);
     
 
     useEffect(() => {
-        verifyDomain(queryName);
+        // verifyDomain(queryName);
         getEpisodeDetails(queryName);
         // getCharacterDetails();
     }, [queryName])
 
-  const verifyDomain = (query) => {
-    console.log(query);
+  // const verifyDomain = (query) => {
+  //   console.log(query);
 
-  }  
+  //   axios.get(`${process.env.REACT_APP_API_URL}episodes/${query}`)
+
+  // }  
 
   const getEpisodeDetails = (query) => {
     const characters = [];
       axios.get(`${process.env.REACT_APP_API_URL}episodes/${query}`).then(
           (response) => {
             console.log(response);
-            setEpisodeDetails(response.data[0]);
 
-            //FOR NEXT TIME GET ALL OF THE DETAILS FOR THE CHARACTERS TO BE DISPLAYED ON THE CHARACTERLIST COMPONENT
+            if(response.data.length === 0){
+              console.log('invalid call');
+              setInvalidCall(true);
+            }
+            else{
+              setEpisodeDetails(response.data[0]);
+
+            
 
             // getting the specific details on the characters that appear in the episode
             axios.get(`${process.env.REACT_APP_API_URL}characters`).then(
@@ -92,7 +102,10 @@ const EpisodePage = () => {
         
             
             
-          }
+          } // end of the else statement
+            } // end of the response function
+
+            
       ).catch((error) => {
           console.log(error);
       })
@@ -119,6 +132,9 @@ const EpisodePage = () => {
   return (
     <div>
 
+    {invalidCall ? <InvalidPage /> : 
+    
+    <div>
     <div className='standard-header'>
         <Link to={(episodeDetails.series === 'Breaking Bad' ? '/episode-details/breaking-bad' : '/episode-details/better-call-saul')}><FaRegArrowAltCircleLeft className='back-button'/></Link>
         <h1>{episodeDetails.title}</h1>
@@ -127,8 +143,11 @@ const EpisodePage = () => {
     <h3>{episodeDetails.title} was Season {episodeDetails.season}, Episode {episodeDetails.episode} of {episodeDetails.series}. It was aired on {episodeDetails.air_date}, and featured the following characters:</h3>
 
 
-    <CharacterList characters={charactersArray} searchInput=''/>
+    <CharacterList characters={charactersArray} searchInput='' extensionType='/characters/'/>
     </div>
+    }
+    </div>
+    
   )
 }
 
