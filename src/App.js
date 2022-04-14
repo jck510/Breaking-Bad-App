@@ -19,8 +19,10 @@ function App() {
       {/* Routing */}
       <Routes>
       <Route exact path='/' element={<HomePage />}/>
+
       <Route exact path='/characters' element={<CharactersPage/>}/>
       <Route exact path='/characters/:name' element={<CharacterDetailsPage />} />
+
       <Route exact path='/episode-details' element={<EpisodeDetailsPage />}/>
       <Route exact path='/episode-details/breaking-bad' element={<BreakingBadDetailsPage />}/>
       <Route exact path='/episode-details/breaking-bad/season/:seasonNumber' element={<BreakingBadDetailsPage />}/>
@@ -28,8 +30,11 @@ function App() {
       <Route exact path='/episode-details/better-call-saul' element={<BetterCallSaulDetailsPage />}/>
       <Route exact path='/episode-details/better-call-saul/season/:seasonNumber' element={<BetterCallSaulDetailsPage />}/>
       <Route exact path='/episode-details/id/:episodeId' element={<EpisodePage />}/>
+      
       <Route exact path='/quotes' element={<QuotesPage />}/>
-      <Route exact path='/quotes/:name' element={<QuotesPage />}/>
+      <Route exact path='/quotes/:name' element={<QuotesPage quoteFrom='character'/>}/>
+      <Route exact path='/quotes/random-quote/:id' element={<QuotesPage quoteFrom='random'/>}/>
+      
       <Route exact path='/deaths' element={<DeathsPage />}/>
 
       

@@ -1,8 +1,14 @@
 import React from 'react'
+import ModalBackdrop from './ModalBackdrop'
 
-const RandomQuoteModal = () => {
+const RandomQuoteModal = ( {quote, cancelAccess} ) => {
   return (
-    <div>RandomQuoteModal</div>
+    <div>
+      <h3>
+        {quote.quote}
+      </h3>
+      <ModalBackdrop cancel={cancelAccess}/>
+    </div>
   )
 }
 
