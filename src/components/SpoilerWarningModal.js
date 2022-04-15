@@ -5,7 +5,7 @@ import ModalBackdrop from './ModalBackdrop'
 const SpoilerWarningModal = ({ sectionToAccess, cancelAccess }) => {
   return (
     <>
-    <ModalBackdrop cancel={cancelAccess}/>
+    <ModalBackdrop returnPageExtension='/' cancel={cancelAccess}/>
     <div className='spoiler-modal-div'>
         <h1>Spoiler Warning</h1>
         {(sectionToAccess === 'quotes') && <h3>Some quotes on the following page may contain spoilers for Breaking Bad and/or Better Call Saul if you are not caught up with the series</h3>}

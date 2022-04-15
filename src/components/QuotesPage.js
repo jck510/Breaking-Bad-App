@@ -16,13 +16,21 @@ const QuotesPage = ( {quoteFrom} ) => {
   const [quotesByCharacterModal, setQuotesByCharacterModal] = useState(false);
   const [randomQuoteModal, setRandomQuoteModal] = useState(false);
   const [randomQuote, setRandomQuote] = useState([]);
+  const [randomQuoteCharacterInfo, setRandomQuoteCharacterInfo] = useState([]);
 
   useEffect(() => {
     getRandomQuote();
     getCharacterList(nameToCheck);
   }, [nameToCheck])
 
-  // FOR NEXT TIME SEE IF THERE IS A WAY TO CHANGE THE DOMAIN NAME WITHOUT REFRESHING THE PAGE WHEN WE TRIGGER THE EXITMODAL FUNCTION (REFRESHING MIGHT BE THE BEST SOLUTION IF A NO REFRESH SOLUTION DOES NOT LET THE SAME MODAL REAPPEAR AFTER BEING CLICKED AGAIN) AND FIX THE REACT HOOK USEEFFECT HAVING MISSING DEPENDENCIES WARNING AND HAVE THE RANDOM QUOTE CHARACTER GET STORED IN A STATE TO BE PASSED INTO THE RANDOM QUOTE MODAL AND POPULATE THE BOTH THE RANDOM MODAL AND CHARACTER QUOTE MODAL WITH THE PROPER INFO NEEDED. ALSO ADD BUTTON THAT GETS ANOTHER RANDOM QUOTE WITHIN THE RANDOM QUOTE MODAL
+  
+
+
+  // FOR NEXT TIME  
+  // AND FIX THE REACT HOOK USEEFFECT HAVING MISSING DEPENDENCIES WARNING (PERHAPS ES LINT COMMENT TO IGNORE IT)
+  // AND HAVE THE RANDOM QUOTE CHARACTER GET STORED IN A STATE TO BE PASSED INTO THE RANDOM QUOTE MODAL 
+  // AND POPULATE THE BOTH THE RANDOM MODAL AND CHARACTER QUOTE MODAL WITH THE PROPER INFO NEEDED. 
+  // ALSO ADD BUTTON THAT GETS ANOTHER RANDOM QUOTE WITHIN THE RANDOM QUOTE MODAL (needs to be fixed. find a way to get this to work)
   
 
   // function to get a random quote from the database
@@ -51,10 +59,15 @@ const QuotesPage = ( {quoteFrom} ) => {
     
   }
 
+  const getAnotherRandomQuote = () => {
+    quoteFrom = undefined;
+    getRandomQuote();
+  }
+
   const exitModal = () => {
     setQuotesByCharacterModal(false);
     setRandomQuoteModal(false);
-    window.location.assign('/quotes');
+    //window.location.assign('/quotes');
   }
   
   //function to get the list of characters who have quotes
@@ -81,6 +94,10 @@ const QuotesPage = ( {quoteFrom} ) => {
                 if(quotesResponse.data[i].author === allCharResponse.data[j].name || quotesResponse.data[i].author === allCharResponse.data[j].nickname || backupName === allCharResponse.data[j].name || backupName === allCharResponse.data[j].nickname){
                   if(!characters.includes(allCharResponse.data[j])){ //if the current character is not in the characters array (avoids duplicates)
                     characters.push(allCharResponse.data[j]);
+                  }
+                  if(quotesResponse.data[i].quote_id === randomQuote.quote_id){ // if the current quote matches the random quote that was selected then the random character info state gets updated
+                    setRandomQuoteCharacterInfo(allCharResponse.data[j]);
+                    console.log(randomQuote.author + ' => ' + allCharResponse.data[j].name);
                   }
                 }
 
@@ -137,16 +154,16 @@ const QuotesPage = ( {quoteFrom} ) => {
     })
   }
 
-  const verifyDomain = () => {
+  // const verifyDomain = () => {
 
-  }
+  // }
 
   return (
     <div>
       {!isValidDomain ? <InvalidPage /> :
       <div>
         {quotesByCharacterModal && <CharacterQuotesModal cancelAccess={() => exitModal()}/>}
-        {randomQuoteModal && <RandomQuoteModal quote={randomQuote} cancelAccess = {() => exitModal()}/>}
+        {randomQuoteModal && <RandomQuoteModal quote={randomQuote} characterInfo={randomQuoteCharacterInfo} cancelAccess = {() => exitModal()}/>}
         <div className='standard-header'>
           <div><Link to='/'><FaRegArrowAltCircleLeft className='back-button' /></Link></div>
           <h1>Quotes</h1>

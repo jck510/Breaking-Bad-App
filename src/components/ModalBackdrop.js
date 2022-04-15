@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const ModalBackdrop = ( {cancel} ) => {
+const ModalBackdrop = ( {cancel, returnPageExtension} ) => {
   return (
-    <div className='modal-backdrop' onClick={() => cancel()}>
-
+    <Link to={returnPageExtension}><div className='modal-backdrop' onClick={() => cancel()}>
+      
     </div>
+    </Link>
   )
 }
 

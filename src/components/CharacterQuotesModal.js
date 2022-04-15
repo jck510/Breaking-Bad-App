@@ -5,7 +5,7 @@ const CharacterQuotesModal = ( {cancelAccess} ) => {
   return (
     <div>
         <div>CharacterQuotesModal</div>
-        <ModalBackdrop cancel={cancelAccess}/>
+        <ModalBackdrop returnPageExtension='/quotes' cancel={cancelAccess}/>
     </div>
   )
 }
