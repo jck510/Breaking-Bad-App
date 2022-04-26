@@ -17,6 +17,8 @@ const QuotesPage = ( {quoteFrom} ) => {
   const [randomQuoteModal, setRandomQuoteModal] = useState(false);
   const [randomQuote, setRandomQuote] = useState([]);
   const [randomQuoteCharacterInfo, setRandomQuoteCharacterInfo] = useState([]);
+  const [allCharactersArray, setAllCharactersArray] = useState([]);
+  const [allQuotesArray, setAllQuotesArray] = useState([]);
 
   useEffect(() => {
     getRandomQuote();
@@ -27,10 +29,12 @@ const QuotesPage = ( {quoteFrom} ) => {
 
 
   // FOR NEXT TIME  
-  // AND FIX THE REACT HOOK USEEFFECT HAVING MISSING DEPENDENCIES WARNING (PERHAPS ES LINT COMMENT TO IGNORE IT)
-  // AND HAVE THE RANDOM QUOTE CHARACTER GET STORED IN A STATE TO BE PASSED INTO THE RANDOM QUOTE MODAL 
+  // ALSO ADD BUTTON THAT GETS ANOTHER RANDOM QUOTE WITHIN THE RANDOM QUOTE MODAL (needs to be fixed. find a way to get this to work: currently has a bug where the picture will not update if going directly to the link of the random quote id. and te button to get the next random quote has to be clicked twice in order to update the picture)
   // AND POPULATE THE BOTH THE RANDOM MODAL AND CHARACTER QUOTE MODAL WITH THE PROPER INFO NEEDED. 
-  // ALSO ADD BUTTON THAT GETS ANOTHER RANDOM QUOTE WITHIN THE RANDOM QUOTE MODAL (needs to be fixed. find a way to get this to work)
+  // AND FIX THE REACT HOOK USEEFFECT HAVING MISSING DEPENDENCIES WARNING (PERHAPS ES LINT COMMENT TO IGNORE IT)
+  // AND HAVE THE RANDOM QUOTE CHARACTER GET STORED IN A STATE TO BE PASSED INTO THE RANDOM QUOTE MODAL
+  
+  
   
 
   // function to get a random quote from the database
@@ -79,12 +83,15 @@ const QuotesPage = ( {quoteFrom} ) => {
     axios.get(`${process.env.REACT_APP_API_URL}characters`).then(
       (allCharResponse) => {
         console.log(allCharResponse.data);
+        setAllCharactersArray(allCharResponse.data);
 
         axios.get(`${process.env.REACT_APP_API_URL}quotes`).then(
           (quotesResponse) => {
             console.log(quotesResponse.data);
 
             const allQuotes = quotesResponse.data;
+            setAllQuotesArray(allQuotes);
+            
 
             for(let i = 0; i < quotesResponse.data.length; i++){ // for every quote in the database
               let backupName = quotesResponse.data[i].author.split(' ')[0];
@@ -158,12 +165,39 @@ const QuotesPage = ( {quoteFrom} ) => {
 
   // }
 
+  const refreshNewQuote = () => {
+    getRandomQuote();
+    console.log()
+    getCharacterList(nameToCheck);
+  }
+
+  const getRandomQuoteDetails = () => {
+    for(let i = 0; i < allQuotesArray.length; i++){ // for every quote in the database
+      let backupName = allQuotesArray[i].author.split(' ')[0];
+
+      for(let j = 0; j < charactersArray.length; j++){ // for every character in the breaking bad universe
+        console.log(allQuotesArray[i].author, charactersArray[j].name , allQuotesArray[i].author , charactersArray[j].nickname, backupName , charactersArray.data[j].name , backupName, charactersArray[j].nickname)
+        if(allQuotesArray[i].author === charactersArray[j].name || allQuotesArray[i].author === charactersArray[j].nickname || backupName === charactersArray.data[j].name || backupName === charactersArray[j].nickname){
+          if(allQuotesArray[i].quote_id === randomQuote.quote_id){ // if the current quote matches the random quote that was selected then the random character info state gets updated
+            setRandomQuoteCharacterInfo(charactersArray[j]);
+            //console.log(randomQuote.author + ' => ' + allCharResponse.data[j].name);
+          }
+        }
+
+      }
+
+    }
+
+
+    
+  }
+
   return (
     <div>
       {!isValidDomain ? <InvalidPage /> :
       <div>
         {quotesByCharacterModal && <CharacterQuotesModal cancelAccess={() => exitModal()}/>}
-        {randomQuoteModal && <RandomQuoteModal quote={randomQuote} characterInfo={randomQuoteCharacterInfo} cancelAccess = {() => exitModal()}/>}
+        {randomQuoteModal && <RandomQuoteModal quote={randomQuote} characterInfo={randomQuoteCharacterInfo} cancelAccess = {() => exitModal()} newQuote={() => refreshNewQuote()}/>}
         <div className='standard-header'>
           <div><Link to='/'><FaRegArrowAltCircleLeft className='back-button' /></Link></div>
           <h1>Quotes</h1>
