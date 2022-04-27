@@ -5,7 +5,7 @@ const DeathsList = ( { deaths } ) => {
   return (
     <div>
         {deaths.map((death) => (
-            <DeathOption key={death} deathDetails={death}/>
+            <DeathOption key={death.death_id} deathDetails={death}/>
         ))}
     </div>
   )

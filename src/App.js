@@ -9,6 +9,7 @@ import CharacterDetailsPage from './components/CharacterDetailsPage';
 import BreakingBadDetailsPage from './components/BreakingBadDetailsPage';
 import BetterCallSaulDetailsPage from './components/BetterCallSaulDetailsPage';
 import EpisodePage from './components/EpisodePage';
+import DeathDetailsPage from './components/DeathDetailsPage';
 
 function App() {
   
@@ -36,6 +37,8 @@ function App() {
       <Route exact path='/quotes/random-quote/:id' element={<QuotesPage quoteFrom='random'/>}/>
       
       <Route exact path='/deaths' element={<DeathsPage />}/>
+      <Route exact path='/deaths/id/:id' element={<DeathsPage isSelected={true} />}/>
+
 
       
 
