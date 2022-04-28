@@ -1,11 +1,11 @@
 import React from 'react'
 import DeathOption from './DeathOption'
 
-const DeathsList = ( { deaths } ) => {
+const DeathsList = ( { deaths, onSelect } ) => {
   return (
     <div>
         {deaths.map((death) => (
-            <DeathOption key={death.death_id} deathDetails={death}/>
+            <DeathOption key={death.death_id} deathDetails={death} onSelect={onSelect}/>
         ))}
     </div>
   )

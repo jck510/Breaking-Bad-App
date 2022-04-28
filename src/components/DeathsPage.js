@@ -45,7 +45,7 @@ const DeathsPage = ( {isSelected} ) => {
   return (
     <div>
 
-      {isDeathCurrentlySelected && <DeathDetailsPage />}
+      {isDeathCurrentlySelected && <DeathDetailsPage exitFunction={() => setIsDeathCurrentlySelected(false)}/>}
 
       <div className='deaths-page-header'>
         <div>
@@ -60,7 +60,7 @@ const DeathsPage = ( {isSelected} ) => {
       </div>
 
       <h2>Click on a death to reveal more details about it</h2>
-      <DeathsList deaths={deathsList}/>
+      <DeathsList deaths={deathsList} onSelect={() => setIsDeathCurrentlySelected(true)}/>
     </div>
   )
 }
