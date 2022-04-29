@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { FaRegArrowAltCircleLeft } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import DeathDetailsPage from './DeathDetailsPage'
 import DeathsList from './DeathsList'
 
@@ -49,7 +50,7 @@ const DeathsPage = ( {isSelected} ) => {
 
       <div className='deaths-page-header'>
         <div>
-          <FaRegArrowAltCircleLeft className='back-button'/>
+          <div><Link to='/'><FaRegArrowAltCircleLeft className='back-button'/></Link></div>
           <h1>Deaths</h1>
         </div>
         <div className='num-of-deaths-div'>

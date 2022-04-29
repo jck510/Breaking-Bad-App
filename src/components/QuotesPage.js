@@ -20,8 +20,14 @@ const QuotesPage = ( {quoteFrom} ) => {
   const [allCharactersArray, setAllCharactersArray] = useState([]);
   const [allQuotesArray, setAllQuotesArray] = useState([]);
 
+  // random quote must be preloaded in order for the routing to be secured in the click for random quote button
   useEffect(() => {
-    getRandomQuote();
+    if(quoteFrom === 'random'){ // if sent from an existing domain with a random quote
+      getRandomQuote(nameToCheck); // will pass in the domain in the random quote function
+    }
+    else{
+      getRandomQuote(); //will get a brand new random quote
+    }
     getCharacterList(nameToCheck);
   }, [nameToCheck])
 
@@ -29,7 +35,6 @@ const QuotesPage = ( {quoteFrom} ) => {
 
 
   // FOR NEXT TIME  
-  // ALSO ADD BUTTON THAT GETS ANOTHER RANDOM QUOTE WITHIN THE RANDOM QUOTE MODAL (needs to be fixed. find a way to get this to work: currently has a bug where the picture will not update if going directly to the link of the random quote id. and te button to get the next random quote has to be clicked twice in order to update the picture)
   // AND POPULATE THE BOTH THE RANDOM MODAL AND CHARACTER QUOTE MODAL WITH THE PROPER INFO NEEDED. 
   // AND FIX THE REACT HOOK USEEFFECT HAVING MISSING DEPENDENCIES WARNING (PERHAPS ES LINT COMMENT TO IGNORE IT)
   // AND HAVE THE RANDOM QUOTE CHARACTER GET STORED IN A STATE TO BE PASSED INTO THE RANDOM QUOTE MODAL
@@ -38,19 +43,26 @@ const QuotesPage = ( {quoteFrom} ) => {
   
 
   // function to get a random quote from the database
-  const getRandomQuote = () => {
-    console.log(nameToCheck.replace('random-quote',''));
-    if(quoteFrom === 'random'){
-      axios.get(`${process.env.REACT_APP_API_URL}quotes/${nameToCheck.replace('random-quote','')}`).then( // will get the random quote from the id listed in the url
+  const getRandomQuote = (domainExtension) => {
+    console.log(domainExtension);
+
+    if(domainExtension !== undefined){ // if the domain extension is not undefined that means that this is from an existing quote page
+      axios.get(`${process.env.REACT_APP_API_URL}quotes/${domainExtension.replace('random-quote','')}`).then( // will get the random quote from the id listed in the url
         (preRandResponse) => {
           console.log(preRandResponse.data[0]);
-          setRandomQuote(preRandResponse.data[0]);
+          if(preRandResponse.data[0] === undefined){ // if the API returns an undefined response then the domain is InValid
+            setIsValidDomain(false);
+          }
+          else{ // otherwise the reponse is valid and the random quote state can be set
+            setRandomQuote(preRandResponse.data[0]);
+          }
         }
       ).catch((error) => {
         console.log(error);
       })
+
     }
-    else{
+    else{ // if it is undefined then this is being called for a fresh random quote
       axios.get(`${process.env.REACT_APP_API_URL}quote/random`).then(
         (randResponse) => {
           console.log(randResponse.data[0]);
@@ -60,13 +72,11 @@ const QuotesPage = ( {quoteFrom} ) => {
         console.log(error);
       })
     }
+
+
     
   }
 
-  const getAnotherRandomQuote = () => {
-    quoteFrom = undefined;
-    getRandomQuote();
-  }
 
   const exitModal = () => {
     setQuotesByCharacterModal(false);
@@ -161,43 +171,14 @@ const QuotesPage = ( {quoteFrom} ) => {
     })
   }
 
-  // const verifyDomain = () => {
 
-  // }
-
-  const refreshNewQuote = () => {
-    getRandomQuote();
-    console.log()
-    getCharacterList(nameToCheck);
-  }
-
-  const getRandomQuoteDetails = () => {
-    for(let i = 0; i < allQuotesArray.length; i++){ // for every quote in the database
-      let backupName = allQuotesArray[i].author.split(' ')[0];
-
-      for(let j = 0; j < charactersArray.length; j++){ // for every character in the breaking bad universe
-        console.log(allQuotesArray[i].author, charactersArray[j].name , allQuotesArray[i].author , charactersArray[j].nickname, backupName , charactersArray.data[j].name , backupName, charactersArray[j].nickname)
-        if(allQuotesArray[i].author === charactersArray[j].name || allQuotesArray[i].author === charactersArray[j].nickname || backupName === charactersArray.data[j].name || backupName === charactersArray[j].nickname){
-          if(allQuotesArray[i].quote_id === randomQuote.quote_id){ // if the current quote matches the random quote that was selected then the random character info state gets updated
-            setRandomQuoteCharacterInfo(charactersArray[j]);
-            //console.log(randomQuote.author + ' => ' + allCharResponse.data[j].name);
-          }
-        }
-
-      }
-
-    }
-
-
-    
-  }
 
   return (
     <div>
       {!isValidDomain ? <InvalidPage /> :
       <div>
         {quotesByCharacterModal && <CharacterQuotesModal cancelAccess={() => exitModal()}/>}
-        {randomQuoteModal && <RandomQuoteModal quote={randomQuote} characterInfo={randomQuoteCharacterInfo} cancelAccess = {() => exitModal()} newQuote={() => refreshNewQuote()}/>}
+        {randomQuoteModal && <RandomQuoteModal quote={randomQuote} characterInfo={randomQuoteCharacterInfo} cancelAccess = {() => exitModal()} characters={charactersArray} allQuotes={allQuotesArray}/>}
         <div className='standard-header'>
           <div><Link to='/'><FaRegArrowAltCircleLeft className='back-button' /></Link></div>
           <h1>Quotes</h1>
