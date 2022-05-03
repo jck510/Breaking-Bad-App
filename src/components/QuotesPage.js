@@ -20,6 +20,10 @@ const QuotesPage = ( {quoteFrom} ) => {
   const [allCharactersArray, setAllCharactersArray] = useState([]);
   const [allQuotesArray, setAllQuotesArray] = useState([]);
 
+  const [currentCharacter, setCurrentCharacter] = useState([]);
+  const [currentCharacterQuoteList, setCurrentCharacterQuoteList] = useState([]);
+
+
   // random quote must be preloaded in order for the routing to be secured in the click for random quote button
   useEffect(() => {
     if(quoteFrom === 'random'){ // if sent from an existing domain with a random quote
@@ -137,9 +141,29 @@ const QuotesPage = ( {quoteFrom} ) => {
                 setRandomQuoteModal(false);
             }
             else if(quoteFrom === 'character' && characters.some(char => char.name === nameToCheck)){ //if there is a character that contains the name we are checking from the domain then the domain is valid and will set the quotesByCharacterModal to true
+              let currChar = characters.filter(char => char.name === nameToCheck); //current character
+
               setCharactersArray(characters);
+              setCurrentCharacter(currChar[0]); //updates the state of the current character
+
+              const currCharQuotes = [];
+
+              //The following for loop goes through every quote and sees if it matches the current character as the author and will add it to the array of quotes for that character
+              for(let i = 0; i < allQuotes.length; i++){
+                let backupName = allQuotes[i].author.split(' ')[0];
+
+                if(allQuotes[i].author === currChar[0].name || allQuotes[i].author === currChar[0].nickname || backupName === currChar[0].name || backupName === currChar[0].nickname){
+                    currCharQuotes.push(allQuotes[i]);
+                }
+                
+              }
+
+              setCurrentCharacterQuoteList(currCharQuotes);
+
               setQuotesByCharacterModal(true);
               setRandomQuoteModal(false);
+
+
             }
             else if(quoteFrom === 'random' && allQuotes.some(quote => quote.quote_id === parseInt(nameToCheck.replace('random-quote','')))){
               setCharactersArray(characters);
@@ -177,7 +201,7 @@ const QuotesPage = ( {quoteFrom} ) => {
     <div>
       {!isValidDomain ? <InvalidPage /> :
       <div>
-        {quotesByCharacterModal && <CharacterQuotesModal cancelAccess={() => exitModal()}/>}
+        {quotesByCharacterModal && <CharacterQuotesModal character={currentCharacter} quotes={currentCharacterQuoteList} cancelAccess={() => exitModal()}/>}
         {randomQuoteModal && <RandomQuoteModal quote={randomQuote} characterInfo={randomQuoteCharacterInfo} cancelAccess = {() => exitModal()} characters={charactersArray} allQuotes={allQuotesArray}/>}
         <div className='standard-header'>
           <div><Link to='/'><FaRegArrowAltCircleLeft className='back-button' /></Link></div>
