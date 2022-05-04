@@ -13,8 +13,8 @@
 * {
   margin: 0;
   padding: 0;
-  /* The following line is commented out for now to have text display on the white background for now */
-  /* color: var(--text-color); */ 
+  
+  color: var(--text-color);
 }
 
 body {
@@ -45,6 +45,9 @@ code {
 }
 
 .links {
+  display: inline-block;
+  width: 100%; 
+  height: 100%;
   text-decoration: none;
 }
 
@@ -224,7 +227,7 @@ code {
 }
 
 
-.character-option-div {
+.character-option-div-wrapper {
   height: 300px;
   width: 300px;
   background-color: var(--button-color);
@@ -246,11 +249,9 @@ code {
   height: 250px;
 }
 
-.character-option-link {
-  text-decoration: none;
-}
 
-.character-option-div:hover {
+
+.character-option-div-wrapper:hover {
   cursor: pointer;
   height: 305px;
   width: 305px;
@@ -333,6 +334,77 @@ code {
   
 }
 
+.episode-details-options-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 7%;
+}
+
+.episode-details-options-div img{
+  height: 350px;
+  width: 440px;
+  margin: 10px;
+}
+
+
+.episode-details-options-div img:hover{
+  height: 360px;
+  width: 450px;
+  margin: 5px;
+}
+
+
+.arrow-choice-button {
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+}
+
+.arrow-choice-button:hover {
+  height: 50px;
+  width: 50px;
+  margin: 5px;
+  
+}
+
+.arrow-choice-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.episode-list-div {
+  margin: 0 auto;
+  margin-top: 30px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4,320px);
+  background-color: var(--background-color);
+}
+
+
+.episode-option-wrapper {
+  height: 150px;
+  width: 300px;
+  background-color: var(--button-color);
+  margin: 30px;
+  padding-top: 20px;
+  border-radius: 5px;
+  text-shadow: black 1px 2px;
+  box-shadow: black 5px 5px 10px;
+}
+
+.episode-option-wrapper:hover {
+  cursor: pointer;
+  height: 155px;
+  width: 305px;
+  margin: 25px;
+}
+
+.page-background {
+  background-color: var(--background-color);
+}
+
 .standard-header {
   display: flex;
   align-items: center;
@@ -349,9 +421,7 @@ code {
   background-color: var(--top-bar-color);
 }
 
-.episode-option-div {
-  cursor: pointer;
-}
+
 
 .spoiler-modal-div {
   position: fixed;

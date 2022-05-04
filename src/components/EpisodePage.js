@@ -134,7 +134,7 @@ const EpisodePage = () => {
 
     {invalidCall ? <InvalidPage /> : 
     
-    <div>
+    <div className='page-background'>
     <div className='standard-header'>
         <Link to={(episodeDetails.series === 'Breaking Bad' ? '/episode-details/breaking-bad' : '/episode-details/better-call-saul')}><FaRegArrowAltCircleLeft className='back-button'/></Link>
         <h1>{episodeDetails.title}</h1>
@@ -143,7 +143,7 @@ const EpisodePage = () => {
     <h3>{episodeDetails.title} was Season {episodeDetails.season}, Episode {episodeDetails.episode} of {episodeDetails.series}. It was aired on {episodeDetails.air_date}, and featured the following characters:</h3>
 
 
-    <CharacterList characters={charactersArray} searchInput='' extensionType='/characters/'/>
+    <CharacterList characters={charactersArray} searchInput='' extensionType='none'/>
     </div>
     }
     </div>

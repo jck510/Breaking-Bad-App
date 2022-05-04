@@ -10,13 +10,19 @@ const EpisodeDetailsPage = () => {
         <h1 className='page-title'>Episode Details</h1>
       </div>
 
+      <div className='episode-details-options-div'>
       <Link to='/episode-details/breaking-bad'><img alt='' src='../assets/images/breaking-bad-logo.jpg' width='400px' height='275px'/></Link>
 
-      <h2>Choose which series to view episode details</h2>
-      <FaArrowLeft />
-      <FaArrowRight />
+      <div className='episode-details-instructions-div'>
+      <h2>Choose which series to view episode details about</h2>
+      <div className='arrow-choice-wrapper'>
+      <div><Link to='/episode-details/breaking-bad'><FaArrowLeft className='arrow-choice-button'/></Link></div>
+      <div><Link to='/episode-details/better-call-saul'><FaArrowRight className='arrow-choice-button'/></Link></div>
+      </div>
+      </div>
 
       <Link to='/episode-details/better-call-saul'><img alt='' src='../assets/images/better-call-saul-logo.jpg' width='400px' height='275px'/></Link>
+      </div>
     </div>
   )
 }

@@ -148,7 +148,7 @@ const BreakingBadDetailsPage = () => {
 
 
   return (
-    <div>
+    <div className='page-background'>
         <div className='standard-header'>
             <div><Link to='/episode-details'><FaRegArrowAltCircleLeft className='back-button'/></Link></div>
             <h1>Breaking Bad</h1>

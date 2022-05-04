@@ -27,7 +27,7 @@ const EpisodeList = ( {episodes, seasonFilter} ) => {
   // }
 
   return (
-    <div>
+    <div className='episode-list-div'>
       {seasonFilter === '0' && episodes.map((episode) =>(
         <EpisodeOption key={episode.episode_id} episode={episode}/>
       ))}
