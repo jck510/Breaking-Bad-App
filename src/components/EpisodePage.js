@@ -137,10 +137,10 @@ const EpisodePage = () => {
     <div className='page-background'>
     <div className='standard-header'>
         <Link to={(episodeDetails.series === 'Breaking Bad' ? '/episode-details/breaking-bad' : '/episode-details/better-call-saul')}><FaRegArrowAltCircleLeft className='back-button'/></Link>
-        <h1>{episodeDetails.title}</h1>
+        <h1 className='page-title'>{episodeDetails.title}</h1>
     </div>
 
-    <h3>{episodeDetails.title} was Season {episodeDetails.season}, Episode {episodeDetails.episode} of {episodeDetails.series}. It was aired on {episodeDetails.air_date}, and featured the following characters:</h3>
+    <h3 className='episode-description misc-text'>{episodeDetails.title} was Season {episodeDetails.season}, Episode {episodeDetails.episode} of {episodeDetails.series}. It aired on {episodeDetails.air_date}, and featured the following characters:</h3>
 
 
     <CharacterList characters={charactersArray} searchInput='' extensionType='none'/>

@@ -200,17 +200,19 @@ const QuotesPage = ( {quoteFrom} ) => {
   return (
     <div>
       {!isValidDomain ? <InvalidPage /> :
-      <div>
+      <div className='page-background'>
         {quotesByCharacterModal && <CharacterQuotesModal character={currentCharacter} quotes={currentCharacterQuoteList} cancelAccess={() => exitModal()}/>}
         {randomQuoteModal && <RandomQuoteModal quote={randomQuote} characterInfo={randomQuoteCharacterInfo} cancelAccess = {() => exitModal()} characters={charactersArray} allQuotes={allQuotesArray}/>}
         <div className='standard-header'>
           <div><Link to='/'><FaRegArrowAltCircleLeft className='back-button' /></Link></div>
-          <h1>Quotes</h1>
+          <h1 className='page-title'>Quotes</h1>
         </div>
         <div>
-          <div><Link to={`/quotes/random-quote/${randomQuote.quote_id}`}><button>Click for a Random Quote</button></Link></div>
-          <h2>OR</h2>
-          <h2>Get Quotes By Character</h2>
+          <div className='quotes-instructions-div'>
+          <div><Link to={`/quotes/random-quote/${randomQuote.quote_id}`}><button className='action-button'>Click for a Random Quote</button></Link></div>
+          <h2 className='misc-text'>OR</h2>
+          <h2 className='misc-text'>Get Quotes By Character</h2>
+          </div>
           <CharacterList characters={charactersArray} searchInput='' extensionType='/quotes/'/>
         </div>
       </div>

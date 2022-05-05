@@ -81,6 +81,7 @@ code {
   margin-left: 15px;
   margin-right: 50px;
   margin-bottom: 15px;
+  text-shadow: black 2px 2px 4px;
 }
 
 
@@ -201,6 +202,7 @@ code {
   margin-top: 10px;
   margin-right: 10px;
   cursor: pointer;
+  filter: drop-shadow(2px 3px 4px black);
   
 }
 
@@ -226,6 +228,10 @@ code {
   
 }
 
+.episode-description {
+  margin-top: 30px;
+  margin-bottom: -30px;
+}
 
 .character-option-div-wrapper {
   height: 300px;
@@ -234,14 +240,14 @@ code {
   margin: 30px;
   padding-top: 20px;
   border-radius: 5px;
-  text-shadow: black 1px 2px;
+  text-shadow: black 1px 2px 4px;
   box-shadow: black 5px 5px 10px;
   
   
 }
 
-.character-option-div-wrapper{
-  
+.page-title {
+  text-shadow: black 2px 3px 10px;
 }
 
 .character-option-div img {
@@ -358,6 +364,7 @@ code {
   height: 40px;
   width: 40px;
   margin: 10px;
+  filter: drop-shadow(2px 3px 4px black);
 }
 
 .arrow-choice-button:hover {
@@ -390,8 +397,9 @@ code {
   margin: 30px;
   padding-top: 20px;
   border-radius: 5px;
-  text-shadow: black 1px 2px;
+  text-shadow: black 1px 2px 4px;
   box-shadow: black 5px 5px 10px;
+  
 }
 
 .episode-option-wrapper:hover {
@@ -401,7 +409,17 @@ code {
   margin: 25px;
 }
 
+.episode-option-div {
+  margin-top: 20px;
+}
+
+.quotes-instructions-div {
+  margin-top: 10px;
+  margin-bottom: -20px;
+}
+
 .page-background {
+  height: 1080px;
   background-color: var(--background-color);
 }
 
@@ -412,6 +430,9 @@ code {
   font-size: 30px;
   height: 100px;
 }
+
+
+
 
 .standard-header .back-button{
   margin-left: 10px;
@@ -424,7 +445,7 @@ code {
 
 
 .spoiler-modal-div {
-  position: fixed;
+  position: absolute;
   width: 35%;
   height: 50%;
   max-height: 100%;
@@ -434,6 +455,75 @@ code {
   left: 50%;
   transform: translate(-50%,-50%);
   background-color: var(--top-bar-color);
+  text-shadow: black 1px 1px 4px;
+  
+}
+
+.misc-text {
+  text-shadow: black 1px 1px 4px;
+}
+
+.spoiler-modal-content-div {
+  margin: 30px;
+}
+
+.action-button {
+  border: 0px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: var(--button-color);
+  cursor: pointer;
+  margin-top: 20px;
+  text-shadow: black 1px 1px 4px;
+}
+
+.action-button:hover {
+  background-color: var(--color-three);
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.deaths-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--top-bar-color);
+  font-size: 30px;
+  height: 150px;
+}
+
+.num-of-deaths-div {
+  width: 500px;
+  font-size: 25px;
+}
+
+.death-option-wrapper {
+  border-radius: 5px;
+  background-color: var(--button-color);
+  height: 115px;
+  width: 210px;
+  margin: 10px;
+}
+
+.death-option-wrapper:hover {
+  cursor: pointer;
+  height: 120px;
+  width: 215px;
+  margin: 5px;
+}
+
+.death-option-div {
+  margin-top: 20px;
+  
+}
+
+.deaths-list-div {
+  margin: 0 auto;
+  margin-top: 30px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4,300px);
+  background-color: var(--background-color);
 }
 
 .modal-backdrop {

@@ -161,10 +161,10 @@ const BetterCallSaulDetailsPage = () => {
 
 
   return (
-    <div>
+    <div className='page-background'>
         <div className='standard-header'>
             <div><Link to='/episode-details'><FaRegArrowAltCircleLeft className='back-button'/></Link></div>
-            <h1>Better Call Saul</h1>
+            <h1 className='page-title'>Better Call Saul</h1>
         </div>
         <div className='header-extension'>
             <div className='nav-bar-buttons-div'>

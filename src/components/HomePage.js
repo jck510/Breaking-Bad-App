@@ -32,7 +32,7 @@ const HomePage = () => {
         <div className='main-nav-bar-div'>
           {/* will change the link for the h1 to a refresh onclick listener */}
           {/* The following links are wrapped in wrapper divs */}
-            <div><Link to='/' className='links'><h1>Breaking Bad Database</h1></Link></div>
+            <div><Link to='/' className='links'><h1 className='page-title'>Breaking Bad Database</h1></Link></div>
             <div className='nav-bar-buttons-div'>
             <div><Link to='/characters'><button>Characters</button></Link></div>
             <div><Link to='/episode-details'><button>Episode Details</button></Link></div>

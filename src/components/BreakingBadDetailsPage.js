@@ -151,7 +151,7 @@ const BreakingBadDetailsPage = () => {
     <div className='page-background'>
         <div className='standard-header'>
             <div><Link to='/episode-details'><FaRegArrowAltCircleLeft className='back-button'/></Link></div>
-            <h1>Breaking Bad</h1>
+            <h1 className='page-title'>Breaking Bad</h1>
         </div>
         <div className='header-extension'>
             <div className='nav-bar-buttons-div'>

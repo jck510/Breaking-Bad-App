@@ -3,7 +3,7 @@ import DeathOption from './DeathOption'
 
 const DeathsList = ( { deaths, onSelect } ) => {
   return (
-    <div>
+    <div className='deaths-list-div'>
         {deaths.map((death) => (
             <DeathOption key={death.death_id} deathDetails={death} onSelect={onSelect}/>
         ))}
