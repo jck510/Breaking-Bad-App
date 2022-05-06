@@ -12,15 +12,20 @@ const CharacterQuotesModal = ( {cancelAccess, character, quotes} ) => {
 
   return (
     <div>
-        <div>
+      <ModalBackdrop returnPageExtension='/quotes' cancel={cancelAccess}/>
+      <div className='character-quotes-modal-wrapper'>
+        <div className='character-quotes-modal-div misc-text'>
           <img alt='' src={character.img} height='400px'/>
           <h1>{character.name}'s Quotes</h1>
+          <div>
           {quotes.map(quote => (
             <li key={quote.quote_id}>{quote.quote}</li>
           ))}
+          </div>
 
         </div>
-        <ModalBackdrop returnPageExtension='/quotes' cancel={cancelAccess}/>
+        </div>
+        
     </div>
   )
 }

@@ -75,16 +75,21 @@ const RandomQuoteModal = ( {quote, characterInfo, cancelAccess, allQuotes, chara
 
   return (
     <div>
+      <ModalBackdrop returnPageExtension='/quotes' cancel={cancelAccess}/>
       {/* height and width are temporarily there */}
+      <div className='character-quotes-modal-wrapper'>
+      <div className='character-quotes-modal-div'>
       <img alt='' src={characterImage} width='400px' height='600px'/>
       <h3>
         "{quote.quote}"
       </h3>
       <h4>-{quote.author}</h4>
+      </div>
+      </div>
 
       {/* <div><Link to={`/quotes/random-quote/${getNextQuoteNumber()}`}><button onClick={() => updateImage()}>Click for another Random Quote</button></Link></div> */}
       
-      <ModalBackdrop returnPageExtension='/quotes' cancel={cancelAccess}/>
+      
     </div>
   )
 }
