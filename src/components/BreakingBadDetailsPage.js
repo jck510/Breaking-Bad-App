@@ -150,21 +150,21 @@ const BreakingBadDetailsPage = () => {
   return (
     <div className='page-background'>
         <div className='standard-header'>
-            <div><Link to='/episode-details'><FaRegArrowAltCircleLeft className='back-button'/></Link></div>
+            <div><Link to='/episode-details' className='links'><FaRegArrowAltCircleLeft className='back-button'/></Link></div>
             <h1 className='page-title'>Breaking Bad</h1>
         </div>
         <div className='header-extension'>
             <div className='nav-bar-buttons-div'>
                 {/* The following links have a ternary operator that will determine whether the page needs to be reloaded to the season extension or go back to the base extension */}
-                <div><Link to={(seasonFilter !== '1') ? '/episode-details/breaking-bad/season/1' : '/episode-details/breaking-bad'}><button onClick={() => toggleFilterPress('1')} className={seasonOneClass}>Season 1</button></Link></div>
-                <div><Link to={(seasonFilter !== '2') ? '/episode-details/breaking-bad/season/2' : '/episode-details/breaking-bad'}><button onClick={() => toggleFilterPress('2')} className={seasonTwoClass}>Season 2</button></Link></div>
-                <div><Link to={(seasonFilter !== '3') ? '/episode-details/breaking-bad/season/3' : '/episode-details/breaking-bad'}><button onClick={() => toggleFilterPress('3')} className={seasonThreeClass}>Season 3</button></Link></div>
-                <div><Link to={(seasonFilter !== '4') ? '/episode-details/breaking-bad/season/4' : '/episode-details/breaking-bad'}><button onClick={() => toggleFilterPress('4')} className={seasonFourClass}>Season 4</button></Link></div>
-                <div><Link to={(seasonFilter !== '5') ? '/episode-details/breaking-bad/season/5' : '/episode-details/breaking-bad'}><button onClick={() => toggleFilterPress('5')} className={seasonFiveClass}>Season 5</button></Link></div>
+                <div><Link to={(seasonFilter !== '1') ? '/episode-details/breaking-bad/season/1' : '/episode-details/breaking-bad'} className='links'><button onClick={() => toggleFilterPress('1')} className={seasonOneClass}>Season 1</button></Link></div>
+                <div><Link to={(seasonFilter !== '2') ? '/episode-details/breaking-bad/season/2' : '/episode-details/breaking-bad'} className='links'><button onClick={() => toggleFilterPress('2')} className={seasonTwoClass}>Season 2</button></Link></div>
+                <div><Link to={(seasonFilter !== '3') ? '/episode-details/breaking-bad/season/3' : '/episode-details/breaking-bad'} className='links'><button onClick={() => toggleFilterPress('3')} className={seasonThreeClass}>Season 3</button></Link></div>
+                <div><Link to={(seasonFilter !== '4') ? '/episode-details/breaking-bad/season/4' : '/episode-details/breaking-bad'} className='links'><button onClick={() => toggleFilterPress('4')} className={seasonFourClass}>Season 4</button></Link></div>
+                <div><Link to={(seasonFilter !== '5') ? '/episode-details/breaking-bad/season/5' : '/episode-details/breaking-bad'} className='links'><button onClick={() => toggleFilterPress('5')} className={seasonFiveClass}>Season 5</button></Link></div>
             </div>
         </div>
 
-        <EpisodeList seasonFilter={seasonFilter} episodes={episodeList}/>
+        <EpisodeList seasonFilter={seasonFilter} episodes={episodeList} series='breaking-bad'/>
         
 
 

@@ -163,7 +163,7 @@ const BetterCallSaulDetailsPage = () => {
   return (
     <div className='page-background'>
         <div className='standard-header'>
-            <div><Link to='/episode-details'><FaRegArrowAltCircleLeft className='back-button'/></Link></div>
+            <div><Link to='/episode-details' className='links'><FaRegArrowAltCircleLeft className='back-button'/></Link></div>
             <h1 className='page-title'>Better Call Saul</h1>
         </div>
         <div className='header-extension'>
@@ -178,7 +178,7 @@ const BetterCallSaulDetailsPage = () => {
             </div>
         </div>
 
-        <EpisodeList seasonFilter={seasonFilter} episodes={episodeList}/>
+        <EpisodeList seasonFilter={seasonFilter} episodes={episodeList} series='better-call-saul'/>
         
 
 

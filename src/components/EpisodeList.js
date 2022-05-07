@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import EpisodeOption from './EpisodeOption';
 
-const EpisodeList = ( {episodes, seasonFilter} ) => {
+const EpisodeList = ( {episodes, seasonFilter, series} ) => {
 
   // useEffect(() => {
   //   filterEpisodes();
@@ -29,7 +29,7 @@ const EpisodeList = ( {episodes, seasonFilter} ) => {
   return (
     <div className='episode-list-div'>
       {seasonFilter === '0' && episodes.map((episode) =>(
-        <EpisodeOption key={episode.episode_id} episode={episode}/>
+        <EpisodeOption key={episode.episode_id} episode={episode} series={series} filterOn={false}/>
       ))}
       {seasonFilter !== '0' && episodes.filter((episode) => {
         if(episode.season.replace(' ', '') === seasonFilter){ // this replace function was added to fix an error with the database that had a space in front of the 1 in season 1 episode 7
@@ -39,7 +39,7 @@ const EpisodeList = ( {episodes, seasonFilter} ) => {
           return null;
         }
       }).map((episode) => (
-        <EpisodeOption key={episode.episode_id} episode={episode}/>
+        <EpisodeOption key={episode.episode_id} episode={episode} series={series} filterOn={true}/>
       ))}
 
     </div>
