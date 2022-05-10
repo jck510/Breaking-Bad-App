@@ -27,11 +27,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 .main-nav-bar-div {
   background-color: var(--top-bar-color);
 }
@@ -66,12 +61,14 @@ code {
 .nav-bar-buttons-div {
   display: flex;
   justify-content: left;
+  height: 50px;
   
 }
 
 .nav-bar-buttons-div button{
   text-decoration: none;
   font-weight: bold;
+  font-size: 14px;
   background-color: var(--button-color);
   border: 0;
   border-radius: 10px;
@@ -83,6 +80,9 @@ code {
   margin-right: 50px;
   margin-bottom: 15px;
   text-shadow: black 2px 2px 4px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 }
 
 
@@ -98,6 +98,32 @@ code {
   background-color: var(--color-three);
 }
 
+.nav-bar-buttons-div a{
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: var(--button-color);
+  border: 0;
+  border-radius: 10px;
+  width: 115px;
+  height: 30px;
+  padding: 5px;
+  color: var(--text-color);
+  margin-left: 15px;
+  margin-right: 50px;
+  margin-bottom: 15px;
+  text-shadow: black 2px 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  
+}
+
+.nav-bar-buttons-div a:hover{
+  cursor: pointer;
+  background-color: var(--color-three);
+}
 
 
 .main-photos-list {
@@ -416,6 +442,11 @@ code {
    width: 75px;
 }
 
+.smaller-icon {
+  height: 60px;
+  width: 60px;
+}
+
 .episode-option-div {
   margin-top: 20px;
 }
@@ -535,20 +566,21 @@ code {
 .death-option-wrapper {
   border-radius: 5px;
   background-color: var(--button-color);
-  height: 115px;
+  height: 155px;
   width: 210px;
   margin: 10px;
 }
 
 .death-option-wrapper:hover {
   cursor: pointer;
-  height: 120px;
+  height: 160px;
   width: 215px;
   margin: 5px;
 }
 
 .death-option-div {
   margin-top: 20px;
+  padding: 10px;
   
 }
 

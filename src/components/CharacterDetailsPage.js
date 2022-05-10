@@ -126,8 +126,9 @@ const CharacterDetailsPage = ( {character} ) => {
       </div>
     }
       {!isLoaded &&
-      <div>Loading Bar goes here</div>
+      <div></div>
       }
+      {/* loading bar would go above */}
 
       
 

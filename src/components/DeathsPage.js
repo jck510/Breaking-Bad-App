@@ -54,7 +54,8 @@ const DeathsPage = ( {isSelected} ) => {
           <h1 className='page-title'>Deaths</h1>
         </div>
         <div className='num-of-deaths-div page-title'>
-          <h3>Death Counter (As of Season 4 of Better Call Saul): <h2>{numberOfDeaths}</h2></h3>
+          <h3>Death Counter (Only including Breaking Bad):</h3>
+          <h2>{numberOfDeaths}</h2>
         </div>
         
       </div>

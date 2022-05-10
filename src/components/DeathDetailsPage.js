@@ -29,7 +29,8 @@ const DeathDetailsPage = ( {exitFunction} ) => {
   return (
     <div>
       <h1>{currentDeath.death}</h1>
-      <h3>{currentDeath.death} was killed in Breaking Bad, Season {currentDeath.season} Episode {currentDeath.episode}. They were {currentDeath.cause} This came at the hands of {currentDeath.responsible}.</h3>
+      {currentDeath.number_of_deaths < 2 && <h3>{currentDeath.death} was killed in Breaking Bad, Season {currentDeath.season} Episode {currentDeath.episode}. The cause of death was {currentDeath.cause} This came at the hands of {currentDeath.responsible}.</h3>}
+      {currentDeath.number_of_deaths > 1 && <h3>{currentDeath.death} were killed in Breaking Bad, Season {currentDeath.season} Episode {currentDeath.episode}. The cause of death was {currentDeath.cause} This came at the hands of {currentDeath.responsible}.</h3>}
       {currentDeath.last_words !== 'Unknown' && <h3>Their last words were "{currentDeath.last_words}"</h3>}
       <ModalBackdrop returnPageExtension='/deaths' cancel={exitFunction}/>
     </div>

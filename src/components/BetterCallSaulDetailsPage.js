@@ -169,12 +169,12 @@ const BetterCallSaulDetailsPage = () => {
         <div className='header-extension'>
             <div className='nav-bar-buttons-div'>
                 {/* The following links have a ternary operator that will determine whether the page needs to be reloaded to the season extension or go back to the base extension */}
-                <div><Link to={(seasonFilter !== '1') ? '/episode-details/better-call-saul/season/1' : '/episode-details/better-call-saul'}><button onClick={() => toggleFilterPress('1')} className={seasonOneClass}>Season 1</button></Link></div>
-                <div><Link to={(seasonFilter !== '2') ? '/episode-details/better-call-saul/season/2' : '/episode-details/better-call-saul'}><button onClick={() => toggleFilterPress('2')} className={seasonTwoClass}>Season 2</button></Link></div>
-                <div><Link to={(seasonFilter !== '3') ? '/episode-details/better-call-saul/season/3' : '/episode-details/better-call-saul'}><button onClick={() => toggleFilterPress('3')} className={seasonThreeClass}>Season 3</button></Link></div>
-                <div><Link to={(seasonFilter !== '4') ? '/episode-details/better-call-saul/season/4' : '/episode-details/better-call-saul'}><button onClick={() => toggleFilterPress('4')} className={seasonFourClass}>Season 4</button></Link></div>
-                <div><Link to={(seasonFilter !== '5') ? '/episode-details/better-call-saul/season/5' : '/episode-details/better-call-saul'}><button onClick={() => toggleFilterPress('5')} className={seasonFiveClass}>Season 5</button></Link></div>
-                <div><Link to={(seasonFilter !== '6') ? '/episode-details/better-call-saul/season/6' : '/episode-details/better-call-saul'}><button onClick={() => toggleFilterPress('6')} className={seasonSixClass}>Season 6</button></Link></div>
+                <div><Link to={(seasonFilter !== '1') ? '/episode-details/better-call-saul/season/1' : '/episode-details/better-call-saul'} onClick={() => toggleFilterPress('1')} className={seasonOneClass}>Season 1</Link></div>
+                <div><Link to={(seasonFilter !== '2') ? '/episode-details/better-call-saul/season/2' : '/episode-details/better-call-saul'} onClick={() => toggleFilterPress('2')} className={seasonTwoClass}>Season 2</Link></div>
+                <div><Link to={(seasonFilter !== '3') ? '/episode-details/better-call-saul/season/3' : '/episode-details/better-call-saul'} onClick={() => toggleFilterPress('3')} className={seasonThreeClass}>Season 3</Link></div>
+                <div><Link to={(seasonFilter !== '4') ? '/episode-details/better-call-saul/season/4' : '/episode-details/better-call-saul'} onClick={() => toggleFilterPress('4')} className={seasonFourClass}>Season 4</Link></div>
+                <div><Link to={(seasonFilter !== '5') ? '/episode-details/better-call-saul/season/5' : '/episode-details/better-call-saul'} onClick={() => toggleFilterPress('5')} className={seasonFiveClass}>Season 5</Link></div>
+                <div><Link to={(seasonFilter !== '6') ? '/episode-details/better-call-saul/season/6' : '/episode-details/better-call-saul'} onClick={() => toggleFilterPress('6')} className={seasonSixClass}>Season 6</Link></div>
             </div>
         </div>
 

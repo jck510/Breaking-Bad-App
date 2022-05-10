@@ -34,13 +34,13 @@ const HomePage = () => {
           {/* The following links are wrapped in wrapper divs */}
             <div><Link to='/' className='links'><h1 className='page-title'>Breaking Bad Database</h1></Link></div>
             <div className='nav-bar-buttons-div'>
-            <div><Link to='/characters'><button>Characters</button></Link></div>
-            <div><Link to='/episode-details'><button>Episode Details</button></Link></div>
+            <div><Link to='/characters'>Characters</Link></div>
+            <div><Link to='/episode-details'>Episode Details</Link></div>
             {/* The following lines are commented out to accomodate the spoiler warnings */}
             {/* <div><Link to='/quotes'><button>Quotes</button></Link></div>
             <div><Link to='/deaths'><button>Deaths</button></Link></div> */}
-            <button onClick={() => setSpoilerPageActive('quotes')}>Quotes</button>
-            <button onClick={() => setSpoilerPageActive('deaths')}>Deaths</button>
+            <div><button onClick={() => setSpoilerPageActive('quotes')}>Quotes</button></div>
+            <div><button onClick={() => setSpoilerPageActive('deaths')}>Deaths</button></div>
 
             </div>
           

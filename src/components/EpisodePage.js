@@ -140,7 +140,7 @@ const EpisodePage = () => {
         <h1 className='page-title'>{episodeDetails.title}</h1>
     </div>
 
-    <h3 className='episode-description misc-text'>{episodeDetails.title} was Season {episodeDetails.season}, Episode {episodeDetails.episode} of {episodeDetails.series}. It aired on {episodeDetails.air_date}, and featured the following characters:</h3>
+    <h3 className='episode-description misc-text'>"{episodeDetails.title}" was Season {episodeDetails.season}, Episode {episodeDetails.episode} of {episodeDetails.series}. It aired on {episodeDetails.air_date}, and featured the following characters:</h3>
 
 
     <CharacterList characters={charactersArray} searchInput='' extensionType='none'/>
