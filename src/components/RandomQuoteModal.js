@@ -79,11 +79,13 @@ const RandomQuoteModal = ( {quote, characterInfo, cancelAccess, allQuotes, chara
       {/* height and width are temporarily there */}
       <div className='character-quotes-modal-wrapper'>
       <div className='character-quotes-modal-div'>
-      <img alt='' src={characterImage} width='400px' height='600px'/>
+      <img alt='' src={characterImage} className='quote-image'/>
+      <div className='random-quote-text-div misc-text'>
       <h3>
         "{quote.quote}"
       </h3>
-      <h4>-{quote.author}</h4>
+      <h4>{quote.author}</h4>
+      </div>
       </div>
       </div>
 
