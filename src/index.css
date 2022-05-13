@@ -333,13 +333,15 @@ body {
 
 .character-details-spoiler-div {
   background-color: var(--top-bar-color);
+  background-image: linear-gradient(var(--color-three),var(--top-bar-color));
   justify-content: center;
   padding: 40px;
   margin-top: 30px;
+  border-radius: 5px;
   
 }
 
-.character-details-spoiler-div button{
+/* .character-details-spoiler-div button{
   background-color: var(--button-color);
   margin-top: 20px;
   border: none;
@@ -351,7 +353,7 @@ body {
 .character-details-spoiler-div button:hover {
   background-color: var(--color-three);
   
-}
+} */
 
 .character-details-details {
   margin: 50px;
@@ -539,9 +541,15 @@ body {
   left: 50%;
   transform: translate(-50%,-50%);
   background-color: var(--top-bar-color);
+  background-image: linear-gradient(var(--color-three),var(--top-bar-color));
   text-shadow: black 1px 1px 4px;
   border-radius: 5px;
+
   
+}
+
+.spoiler-modal-div h1{
+  font-size: 40px;  
 }
 
 .misc-text {
@@ -570,6 +578,7 @@ body {
 
 .action-button:hover {
   background-color: var(--color-three);
+  background-image: linear-gradient(var(--color-three),var(--color-one));
   padding: 15px;
   margin-top: 10px;
 }
@@ -631,6 +640,7 @@ body {
   left: 50%;
   transform: translate(-50%,-50%);
   background-color: var(--top-bar-color);
+  background-image: linear-gradient(var(--color-three),var(--top-bar-color));
   width: 600px;
   padding: 40px;
   padding-top: 20px;

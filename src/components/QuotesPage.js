@@ -37,23 +37,17 @@ const QuotesPage = ( {quoteFrom} ) => {
 
   
 
-
-  // FOR NEXT TIME  
-  // AND POPULATE THE BOTH THE RANDOM MODAL AND CHARACTER QUOTE MODAL WITH THE PROPER INFO NEEDED. 
-  // AND FIX THE REACT HOOK USEEFFECT HAVING MISSING DEPENDENCIES WARNING (PERHAPS ES LINT COMMENT TO IGNORE IT)
-  // AND HAVE THE RANDOM QUOTE CHARACTER GET STORED IN A STATE TO BE PASSED INTO THE RANDOM QUOTE MODAL
-  
   
   
 
   // function to get a random quote from the database
   const getRandomQuote = (domainExtension) => {
-    console.log(domainExtension);
+    //console.log(domainExtension);
 
     if(domainExtension !== undefined){ // if the domain extension is not undefined that means that this is from an existing quote page
       axios.get(`${process.env.REACT_APP_API_URL}quotes/${domainExtension.replace('random-quote','')}`).then( // will get the random quote from the id listed in the url
         (preRandResponse) => {
-          console.log(preRandResponse.data[0]);
+          
           if(preRandResponse.data[0] === undefined){ // if the API returns an undefined response then the domain is InValid
             setIsValidDomain(false);
           }
@@ -62,18 +56,18 @@ const QuotesPage = ( {quoteFrom} ) => {
           }
         }
       ).catch((error) => {
-        console.log(error);
+        console.clear();
       })
 
     }
     else{ // if it is undefined then this is being called for a fresh random quote
       axios.get(`${process.env.REACT_APP_API_URL}quote/random`).then(
         (randResponse) => {
-          console.log(randResponse.data[0]);
+          
           setRandomQuote(randResponse.data[0]);
         }
       ).catch((error) => {
-        console.log(error);
+        console.clear();
       })
     }
 
@@ -96,12 +90,12 @@ const QuotesPage = ( {quoteFrom} ) => {
 
     axios.get(`${process.env.REACT_APP_API_URL}characters`).then(
       (allCharResponse) => {
-        console.log(allCharResponse.data);
+        
         setAllCharactersArray(allCharResponse.data);
 
         axios.get(`${process.env.REACT_APP_API_URL}quotes`).then(
           (quotesResponse) => {
-            console.log(quotesResponse.data);
+            
 
             const allQuotes = quotesResponse.data;
             setAllQuotesArray(allQuotes);
@@ -118,15 +112,15 @@ const QuotesPage = ( {quoteFrom} ) => {
                   }
                   if(quotesResponse.data[i].quote_id === randomQuote.quote_id){ // if the current quote matches the random quote that was selected then the random character info state gets updated
                     setRandomQuoteCharacterInfo(allCharResponse.data[j]);
-                    console.log(randomQuote.author + ' => ' + allCharResponse.data[j].name);
+                    
                   }
                 }
 
               }
             }
 
-            console.log(nameToCheck.replace('random-quote',''));
-            console.log(allQuotes);
+            // console.log(nameToCheck.replace('random-quote',''));
+            // console.log(allQuotes);
       
             
             // if(nameToCheck === ''){ //if there is no character to check in the domain then the domain is valid
@@ -186,12 +180,12 @@ const QuotesPage = ( {quoteFrom} ) => {
 
           }
         ).catch((err) => {
-          console.log(err);
+          console.clear();
         })
 
       }
     ).catch((error) => {
-      console.log(error);
+      console.clear();
     })
   }
 

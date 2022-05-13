@@ -26,13 +26,12 @@ const BreakingBadDetailsPage = () => {
   // function in order to verify whether or not the domain extension was valid and if any filters are supposed to be currently selected
   const verifyDomain = (query) => {
     if(query.charAt(query.length - 1) === 'd'){
-      //console.log('breaking-bad extension');
       setSeasonFilter('0');
 
 
     }
     else if(parseInt(query.replace('episode-detailsbreaking-badseason','')) > 0 && parseInt(query.replace('episode-detailsbreaking-badseason','')) < 6){
-      // console.log('season number extension');
+      
       setSeasonFilter(query.replace('episode-detailsbreaking-badseason', '')); // sets the season filter to the proper domain extension
       switch(query.replace('episode-detailsbreaking-badseason', '')){ // switch statement to determine which extension is highlighted
         case '1':
@@ -57,7 +56,7 @@ const BreakingBadDetailsPage = () => {
 
     }
     else{
-      //console.log('invalid extension');
+      
       alert('Invalid season number, The page will be redirected to all seasons');
       window.location = '/episode-details/breaking-bad';
     }
@@ -66,11 +65,11 @@ const BreakingBadDetailsPage = () => {
   const getEpisodeList = () =>{
     axios.get(`${process.env.REACT_APP_API_URL}episodes?series=Breaking+Bad`).then(
       (response) => {
-        console.log(response.data);
+        
         setEpisodeList(response.data);
       }
     ).catch((error) => {
-      console.log('error');
+      // console.log('error');
       console.clear();
     })
   }

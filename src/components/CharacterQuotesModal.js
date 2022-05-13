@@ -5,10 +5,10 @@ const CharacterQuotesModal = ( {cancelAccess, character, quotes} ) => {
 
   // const queryName = (useLocation().pathname.replace('%'))
 
-  useEffect(() => {
-    console.log(character);
-    console.log(quotes);
-  }, [])
+  // useEffect(() => {
+  //   // console.log(character);
+  //   // console.log(quotes);
+  // }, [])
 
   return (
     <div>

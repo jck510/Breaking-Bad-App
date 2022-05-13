@@ -21,15 +21,14 @@ const CharactersPage = () => {
   const getCharacterList = () => {
     axios.get(`${process.env.REACT_APP_API_URL}characters`).then(
       (response) => {        
-        //console.log(response);
+        
         setCharacters(response.data);
         setCharactersLoaded(true);
-        //console.log('success');
+        
       
       }).catch((error) => {
         console.clear();
-        // console.log(error);
-        console.log('Error');
+        
     })
   }
   

@@ -14,7 +14,7 @@ const CharacterList = ({characters, searchInput, extensionType}) => {
   //   const getCharacterOptions = (characterList) => {
   //     let characterCode = ''
   //       for(let i = 0; i < characterList.length; i++){
-  //         console.log(characterList[i]);
+  //         
   //         characterCode = characterCode + `<CharacterOption imageSource='${characterList[i].img}' characterName='${characterList[i].name}'/>`
   //       }
   //       setCharactersAvailable(characterCode);

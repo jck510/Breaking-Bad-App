@@ -27,13 +27,13 @@ const BetterCallSaulDetailsPage = () => {
 
   const verifyDomain = (query) => {
     if(query.charAt(query.length - 1) === 'l'){ // if it is the case that it is the better-call-saul extension
-      //console.log('breaking-bad extension');
+      
       setSeasonFilter('0');
 
 
     }
     else if(parseInt(query.replace('episode-detailsbetter-call-saulseason','')) > 0 && parseInt(query.replace('episode-detailsbetter-call-saulseason','')) < 7){ // if its the case that it is one of the better call saul seasons as an extension
-      // console.log('season number extension');
+      
       setSeasonFilter(query.replace('episode-detailsbetter-call-saulseason', '')); // sets the season filter to the proper domain extension
       switch(query.replace('episode-detailsbetter-call-saulseason', '')){ // switch statement to determine which extension is highlighted
         case '1':
@@ -60,8 +60,8 @@ const BetterCallSaulDetailsPage = () => {
       }
 
     }
-    else{ // 
-      //console.log('invalid extension');
+    else{
+      
       alert('Invalid season number, The page will be redirected to all seasons');
       window.location = '/episode-details/better-call-saul';
     }
@@ -70,11 +70,11 @@ const BetterCallSaulDetailsPage = () => {
   const getEpisodeList = () =>{
     axios.get(`${process.env.REACT_APP_API_URL}episodes?series=Better+Call+Saul`).then(
       (response) => {
-        console.log(response.data);
+        
         setEpisodeList(response.data);
       }
     ).catch((error) => {
-      console.log('error');
+      //console.log('error');
       console.clear();
     })
   }

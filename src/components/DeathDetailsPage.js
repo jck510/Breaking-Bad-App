@@ -10,10 +10,10 @@ const DeathDetailsPage = ( {exitFunction} ) => {
 
 
   useEffect(() => {
-    console.log(queryName);
+    
     axios.get(`${process.env.REACT_APP_API_URL}deaths`).then(
       (response) => {
-        console.log(response);
+        
         for(let i = 0; i < response.data.length; i++){ // for every death in the database
           if(queryName.toString() === response.data[i].death_id.toString()){ // if the death matches the id in the url then it will set the state to the proper death
             setCurrentDeath(response.data[i]);
@@ -21,7 +21,7 @@ const DeathDetailsPage = ( {exitFunction} ) => {
         }
       }
     ).catch((error) => {
-      console.log(error);
+      console.clear();
     })
   }, [queryName])
 

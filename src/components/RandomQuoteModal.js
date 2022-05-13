@@ -33,7 +33,7 @@ const RandomQuoteModal = ( {quote, characterInfo, cancelAccess, allQuotes, chara
     else{
       setCharacterImage(characterInfo.img);
     }
-    console.log(characterInfo);
+    // console.log(characterInfo);
     
   }, [allQuotes,characterInfo])
 
@@ -46,10 +46,7 @@ const RandomQuoteModal = ( {quote, characterInfo, cancelAccess, allQuotes, chara
   // }
 
   // const updateImage = (quoteId) => {
-  //   // console.log('test', quoteNumber);
-  //   // console.log(characterInfo.img);
-  //   // console.log(characters);
-  //   // console.log(allQuotes);
+  
   //   for(let i = 0; i < allQuotes.length; i++){ 
       
   //     let backupName = allQuotes[i].author.split(' ')[0];
@@ -60,8 +57,7 @@ const RandomQuoteModal = ( {quote, characterInfo, cancelAccess, allQuotes, chara
           
   //         if(allQuotes[i].quote_id === quoteId){ // if the current quote matches the random quote that was selected then the random character info state gets updated
   //           //setCharacterImage(characters[j].img);
-  //           console.log(characters[j]);
-  //           //console.log(randomQuote.author + ' => ' + characters[j].name);              
+  //                       
   //         }
   //       }
 
@@ -71,7 +67,6 @@ const RandomQuoteModal = ( {quote, characterInfo, cancelAccess, allQuotes, chara
     
   // }
 
-//console.log(characterInfo);
 
   return (
     <div>

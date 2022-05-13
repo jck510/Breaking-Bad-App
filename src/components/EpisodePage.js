@@ -30,10 +30,10 @@ const EpisodePage = () => {
     const characters = [];
       axios.get(`${process.env.REACT_APP_API_URL}episodes/${query}`).then(
           (response) => {
-            console.log(response);
+            
 
             if(response.data.length === 0){
-              console.log('invalid call');
+              
               setInvalidCall(true);
             }
             else{
@@ -44,14 +44,10 @@ const EpisodePage = () => {
             // getting the specific details on the characters that appear in the episode
             axios.get(`${process.env.REACT_APP_API_URL}characters`).then(
                 (res) => {
-                    console.log(res);
-                    
 
-                    console.log(response.data[0].characters.length, '<- Length of characters in episode');
                     
                     for(let i = 0; i < response.data[0].characters.length; i++){ // for each character in the episode
-                      // console.log(i)
-                      // console.log(res.data.length);
+                      
                       let backupName = response.data[0].characters[i].split(' ')[0]; 
                         for(let j = 0; j < res.data.length; j++){ // for every character that exists in the breaking bad universe
                           
@@ -80,13 +76,9 @@ const EpisodePage = () => {
 
 
                           if(response.data[0].characters[i] === res.data[j].name || response.data[0].characters[i] === res.data[j].nickname || backupName === res.data[j].name || backupName === res.data[j].nickname){
-                            // console.log(i + 1);
-                            console.log(response.data[0].characters[i] === res.data[j].name, response.data[0].characters[i] === res.data[j].nickname, backupName === res.data[j].name, backupName === res.data[j].nickname)
-                            console.log(i + 1, res.data[j].name , response.data[0].characters[i], res.data[j].nickname, backupName);
-
+                            
                             characters.push(res.data[j]);
               
-
                           }
                       
                         }
@@ -96,7 +88,7 @@ const EpisodePage = () => {
                     setCharactersArray(characters);
                 }
             ).catch((error) =>{
-                console.log(error);
+                console.clear();
             })
             
         
@@ -107,7 +99,7 @@ const EpisodePage = () => {
 
             
       ).catch((error) => {
-          console.log(error);
+          console.clear();
       })
   }
 
@@ -118,11 +110,10 @@ const EpisodePage = () => {
 //         for(let i = 0; i < episodeDetails.characters.length; i++){
 //             axios.get(`${process.env.REACT_APP_API_URL}characters?=name=${episodeDetails.characters[i]}`).then(
 //                 (response) => {
-//                     console.log(i)
-//                     console.log(response.data[0]);
+//                     
 //                 }
 //             ).catch((error) =>{
-//                 console.log(error);
+//                 console.clear();
 //             })
 //         }
 //         }

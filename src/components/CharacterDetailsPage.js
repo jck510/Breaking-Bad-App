@@ -7,8 +7,7 @@ import InvalidPage from './InvalidPage';
 const CharacterDetailsPage = ( {character} ) => {
 
   // const [cameFromCharactersPage, setCameFromCharactersPage] = useState(character !== null); //not equal to null means it came from the previous page
-  // console.log(cameFromCharactersPage);
-  // console.log((useLocation().pathname).replace('/characters/','').replaceAll('%20','+')); // query name (gets it from the URL and replaces the %20's with pluses for the api call )
+  
   
   const queryName = (useLocation().pathname).replace('/characters/','').replaceAll('%20','+'); //sets a variable for the query name for the given character
   const [characterDetails, setCharacterDetails] = useState([]);
@@ -25,7 +24,7 @@ const CharacterDetailsPage = ( {character} ) => {
   const getCharacterDetails = (query) => { // a function to fetch the data from the api about the given character
     axios.get(`${process.env.REACT_APP_API_URL}characters?name=${query}`).then(
       (response) => {
-        console.log(response);
+        
         if(response.data.length === 0){
           setIsNonExistentDomain(true);
         }
@@ -36,28 +35,18 @@ const CharacterDetailsPage = ( {character} ) => {
         //   setIsNonExistentDomain(false);
         // }
         
-          console.log(response.data[0])
+          
         }
 
         
       }
     ).catch((error) => {
-      console.log(error);
-      console.log('whoops');
+      
+      // console.log('whoops');
+      console.clear();
     })
   }
 
-  const getOccupations = () =>{
-    console.log('info')
-    
-  }
-  // if(character === null){
-  //   setCameFromCharactersPage(false);
-  //   //axios.get();
-  // }
-  // else{
-  //   setCameFromCharactersPage(true);
-  // }
 
   return (
     <>
@@ -71,9 +60,9 @@ const CharacterDetailsPage = ( {character} ) => {
       <div className='character-details-loaded-div'>
       <img alt='' src={characterDetails.img} />
 
-      <div className='character-details-details'>
+      <div className='character-details-details misc-text'>
 
-      <h1>{characterDetails.name}</h1>
+      <h1 className='page-title'>{characterDetails.name}</h1>
       <h2>"{characterDetails.nickname}"</h2>
       {/* Be prepared to remove birthday for characters who have an undefined birthday */}
       <h3>{(characterDetails.birthday !== 'Undefined') && `Birthday: ${characterDetails.birthday}`}</h3>
@@ -88,7 +77,7 @@ const CharacterDetailsPage = ( {character} ) => {
       <div className='character-details-spoiler-div'>
         <h2>Spoiler Warning!</h2>
         <h3>If you are not caught up with Breaking Bad and/or Better Call Saul then the following information may contain spoilers</h3>
-        <button onClick={() => setShowSpoilers(true)}>See more information</button>
+        <button onClick={() => setShowSpoilers(true)} className='action-button'>See more information</button>
       </div>
       :
       <div className='character-details-spoiler-div'>
@@ -119,7 +108,7 @@ const CharacterDetailsPage = ( {character} ) => {
         :
         <h3>As of Season 4, {characterDetails.name} has not appeared in Better Call Saul</h3>
         }
-        <button onClick={() => setShowSpoilers(false)}>Show Less Info</button>
+        <button onClick={() => setShowSpoilers(false)} className='action-button'>Show Less Info</button>
       </div>
       }
       </div>

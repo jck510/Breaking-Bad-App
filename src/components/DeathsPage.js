@@ -11,8 +11,6 @@ const DeathsPage = ( {isSelected} ) => {
   const [numberOfDeaths, setNumberOfDeaths] = useState(0);
   const [isDeathCurrentlySelected, setIsDeathCurrentlySelected] = useState(false);
 
-  //FOR NEXT TIME
-  // PROPERLY ADD THE MODAL FOR THE DEATH INFORMATION OF THE CURRENT DEATH TO BE DISPLAYED
 
   useEffect(() => {
 
@@ -23,21 +21,21 @@ const DeathsPage = ( {isSelected} ) => {
     // gets all the deaths that occured in the series
     axios.get(`${process.env.REACT_APP_API_URL}deaths`).then(
       (response) => {
-        console.log(response.data);
+        
         setDeathsList(response.data);
       }
     ).catch((error) => {
-      console.log(error);
+      console.clear();
     })
 
     // gets the total number of deaths in the series
     axios.get(`${process.env.REACT_APP_API_URL}death-count`).then(
       (res) => {
-        console.log(res.data[0].deathCount);
+        
         setNumberOfDeaths(res.data[0].deathCount);
       }
     ).catch((err) => {
-      console.log(err);
+      console.clear();
     })
 
   }, [])
