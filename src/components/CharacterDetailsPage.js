@@ -53,13 +53,15 @@ const CharacterDetailsPage = ( {character} ) => {
     
     {isNonExistentDomain ? <InvalidPage /> :
     <div className='character-details-page-div'>
-      <div><Link to='/characters'><FaRegArrowAltCircleLeft to='/characters' className='back-button' size='40px'/></Link></div>
+      <div className='back-button-wrapper'><Link to='/characters'><FaRegArrowAltCircleLeft to='/characters' className='back-button' size='40px'/></Link></div>
       {/* The following checks if the page details were loaded properly to display information to the user or not about the character that was queried */}
       
       {(isLoaded && !isNonExistentDomain) &&
+      <div className='character-details-loaded-wrapper'>
       <div className='character-details-loaded-div'>
       <img alt='' src={characterDetails.img} />
 
+      <div className='character-details-details-wrapper'>
       <div className='character-details-details misc-text'>
 
       <h1 className='page-title'>{characterDetails.name}</h1>
@@ -109,8 +111,11 @@ const CharacterDetailsPage = ( {character} ) => {
         <h3>As of Season 4, {characterDetails.name} has not appeared in Better Call Saul</h3>
         }
         <button onClick={() => setShowSpoilers(false)} className='action-button'>Show Less Info</button>
+        
       </div>
       }
+      </div>
+      </div>
       </div>
       </div>
     }
