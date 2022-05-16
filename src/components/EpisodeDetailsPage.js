@@ -11,7 +11,7 @@ const EpisodeDetailsPage = () => {
       </div>
 
       <div className='episode-details-options-div'>
-      <Link to='/episode-details/breaking-bad'><img alt='' src='../assets/images/breaking-bad-logo.jpg' width='400px' height='275px'/></Link>
+      <Link to='/episode-details/breaking-bad'><img alt='' src='../assets/images/breaking-bad-logo.jpg'/></Link>
 
       <div className='episode-details-instructions-div'>
       <h2 className='misc-text'>Choose which series to view episode details about</h2>
@@ -21,7 +21,7 @@ const EpisodeDetailsPage = () => {
       </div>
       </div>
 
-      <Link to='/episode-details/better-call-saul'><img alt='' src='../assets/images/better-call-saul-logo.jpg' width='400px' height='275px'/></Link>
+      <Link to='/episode-details/better-call-saul'><img alt='' src='../assets/images/better-call-saul-logo.jpg'/></Link>
       </div>
     </div>
   )

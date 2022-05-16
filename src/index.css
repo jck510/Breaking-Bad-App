@@ -260,7 +260,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  margin: 0px;
 }
 
 .character-list-div {
@@ -298,14 +298,16 @@ body {
   margin: 25px;
 }
 
-.page-title {
-  text-shadow: black 2px 3px 10px;
-}
-
 .character-option-div img {
   width: 200px; 
   height: 250px;
 }
+
+.page-title {
+  text-shadow: black 2px 3px 10px;
+}
+
+
 
 
 
@@ -469,6 +471,7 @@ body {
   border-radius: 5px;
   text-shadow: black 1px 2px 4px;
   box-shadow: black 5px 5px 10px;
+  overflow-y: hidden;
   
 }
 
@@ -639,6 +642,7 @@ body {
   height: 155px;
   width: 210px;
   margin: 10px;
+  overflow-y: hidden;
 }
 
 .death-option-wrapper:hover {
@@ -652,6 +656,10 @@ body {
   margin-top: 20px;
   padding: 10px;
   
+}
+
+.deaths-content-div {
+  margin-top: 10px;
 }
 
 .deaths-list-div {
@@ -714,7 +722,8 @@ body {
   .auto-slider{
     display: flex;
     margin: 150px auto;
-    margin-top: 50px;
+    margin-top: 10px;
+    margin-bottom: 100px;
     
     /* outline: 1px solid red; */
     width: 800px;
@@ -722,8 +731,6 @@ body {
     height: 470px;
     overflow-x: hidden;
     
-    
-  
   }
   
   @keyframes slide{
@@ -744,12 +751,15 @@ body {
     }
   }
 
+    /* Characters section */
+
   .character-list-div {
     margin: 0 auto;
     margin-top: 30px;
+    margin-left: -10px;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(3,320px);
+    grid-template-columns: repeat(3,340px);
     overflow-x: visible;
   }
   
@@ -759,12 +769,251 @@ body {
     width: 500px;
     height: 100%;
   }
-  
+
+  /* episode details section */
+
+  .episode-details-options-div img{
+  height: 250px;
+  width: 275px;
+  margin: 10px;
+  margin-left: 0px
+
+  }
+
+  .episode-details-options-div img:hover{
+    height: 260px;
+    width: 285px;
+    margin: 5px;
+    margin-left: -5px;
+
+  }
+
+  .episode-list-div {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-left: -20px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3,340px);
+    background-color: var(--background-color);
+  }
+
+    /* nav bar buttons */
+
+  .nav-bar-buttons-div button:hover{
+    background-color: var(--button-color);
+    background-image: linear-gradient(var(--button-color),var(--color-four));
+  }
+
+  .nav-bar-buttons-div .selected-button {
+    background-color: var(--button-color);
+    background-image: linear-gradient(var(--button-color),var(--color-four));
+    
+  }
+
+  .nav-bar-buttons-div a:hover {
+    background-color: var(--button-color);
+    background-image: linear-gradient(var(--button-color),var(--color-four));
+  }
+
+    /* Quotes Section */
+
+  .character-quotes-modal-wrapper {
+    position: absolute;
+    margin: auto; 
+    margin-top: 35px;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,0%);
+    background-color: var(--top-bar-color);
+    background-image: linear-gradient(var(--color-three),var(--top-bar-color));
+    width: 775px;
+    padding: 40px;
+    border-radius: 5px;
+  }
+
+    /* Deaths Section */
+
+  .deaths-list-div {
+    margin: 0 auto;
+    margin-top: 30px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4,250px);
+    background-color: var(--background-color);
+  }
+
 }
 
 /* Tablet View - portrait*/
 @media screen and (min-width: 720px) and (max-width: 1080px) and (orientation: portrait) {
 
+  .main-photos-list img {
+    width: 800px;
+    /* height: var(--main-picture-desktop-height); */
+    height: 470px;
+    display: block;
+    overflow-x: visible;
+  }
+
+  .auto-slider{
+    display: flex;
+    margin: 150px auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    
+    /* outline: 1px solid red; */
+    width: 800px;
+    /* height: var(--main-picture-desktop-height); */
+    height: 470px;
+    overflow-x: hidden;
+    
+  }
+  
+  @keyframes slide{
+    10%{
+      transform: translateX(0);
+    }
+    15%, 30%{
+      transform: translateX(-800px);
+    }
+    35%, 50%{
+      transform: translateX(-1600px);
+    }
+    55%, 70%{
+      transform: translateX(-2400px);
+    }
+    75%, 90%{
+      transform: translateX(0);
+    }
+  }
+
+    /* Characters section */
+
+  .character-list-div {
+    margin: 0 auto;
+    margin-top: 30px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3,250px);
+    overflow-x: visible;
+  }
+  
+
+  .character-option-div-wrapper {
+    height: 200px;
+    width: 220px;
+    background-color: var(--button-color);
+    background-image: linear-gradient(var(--button-color),var(--color-four));
+    margin: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 5px;
+    text-shadow: black 1px 2px 4px;
+    box-shadow: black 5px 5px 10px;
+    overflow-y: hidden;
+    
+  }
+  
+  .character-option-div-wrapper:hover {
+    cursor: pointer;
+    height: 205px;
+    width: 225px;
+    margin: 25px;
+  }
+
+  .character-option-div-wrapper a{
+    height: 200px;
+    width: 220px;
+    overflow-y: hidden;
+  }
+
+  .character-option-div {
+    overflow-x: hidden;
+  }
+
+  .character-option-div img {
+    width: 125px; 
+    height: 175px;
+  }
+
+  .character-details-loaded-div img {
+    width: 500px;
+    height: 100%;
+  }
+
+  /* episode details section */
+
+  .episode-details-options-div img{
+  height: 250px;
+  width: 275px;
+  margin: 10px;
+  margin-left: 0px
+
+  }
+
+  .episode-details-options-div img:hover{
+    height: 260px;
+    width: 285px;
+    margin: 5px;
+    margin-left: -5px;
+
+  }
+
+  .episode-list-div {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-left: -20px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3,340px);
+    background-color: var(--background-color);
+  }
+
+    /* nav bar buttons */
+
+  .nav-bar-buttons-div button:hover{
+    background-color: var(--button-color);
+    background-image: linear-gradient(var(--button-color),var(--color-four));
+  }
+
+  .nav-bar-buttons-div .selected-button {
+    background-color: var(--button-color);
+    background-image: linear-gradient(var(--button-color),var(--color-four));
+    
+  }
+
+  .nav-bar-buttons-div a:hover {
+    background-color: var(--button-color);
+    background-image: linear-gradient(var(--button-color),var(--color-four));
+  }
+
+    /* Quotes Section */
+
+  .character-quotes-modal-wrapper {
+    position: absolute;
+    margin: auto; 
+    margin-top: 35px;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,0%);
+    background-color: var(--top-bar-color);
+    background-image: linear-gradient(var(--color-three),var(--top-bar-color));
+    width: 775px;
+    padding: 40px;
+    border-radius: 5px;
+  }
+
+    /* Deaths Section */
+
+  .deaths-list-div {
+    margin: 0 auto;
+    margin-top: 30px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4,250px);
+    background-color: var(--background-color);
+  }
 
 }
 
