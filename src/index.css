@@ -428,6 +428,7 @@ body {
   height: 350px;
   width: 440px;
   margin: 10px;
+  box-shadow: 1px 1px 3px black;
 }
 
 
@@ -514,16 +515,21 @@ body {
 }
 
 .character-quotes-modal-wrapper {
-  position: absolute;
+  position: fixed;
   margin: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   background-color: var(--top-bar-color);
   background-image: linear-gradient(var(--color-three),var(--top-bar-color));
-  width: 875px;
+  width: 775px;
+  max-height: 900px;
   padding: 40px;
+  padding-top: 25px;
+  padding-bottom: 25px;
   border-radius: 5px;
+  overflow-y: visible;
+  box-shadow: 1px 1px 20px black;
 }
 
 
@@ -577,7 +583,7 @@ body {
 
 .spoiler-modal-div {
   position: absolute;
-  width: 35%;
+  width: 500px;
   height: 300px;
   text-align: center;
   margin: auto;
@@ -588,7 +594,7 @@ body {
   background-image: linear-gradient(var(--color-three),var(--top-bar-color));
   text-shadow: black 1px 1px 4px;
   border-radius: 5px;
-
+  box-shadow: 1px 1px 20px black;
   
 }
 
@@ -704,12 +710,13 @@ body {
 }
 
 .modal-backdrop {
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   background-color: black;
   opacity: 0.5;
   cursor: pointer;
+  
 }
 
 .quote-image {
@@ -788,6 +795,7 @@ body {
   width: 275px;
   margin: 10px;
   margin-left: 0px
+  
 
   }
 
@@ -830,7 +838,7 @@ body {
     /* Quotes Section */
 
   .character-quotes-modal-wrapper {
-    position: absolute;
+    position: fixed;
     margin: auto; 
     margin-top: 35px;
     top: 0%;
@@ -838,9 +846,14 @@ body {
     transform: translate(-50%,0%);
     background-color: var(--top-bar-color);
     background-image: linear-gradient(var(--color-three),var(--top-bar-color));
-    width: 775px;
-    padding: 40px;
+    width: 675px;
+    max-height: 475px;
     border-radius: 5px;
+  }
+
+  .character-quotes-modal-wrapper img {
+    height: 350px;
+    width: 250px;
   }
 
     /* Deaths Section */
@@ -935,6 +948,7 @@ body {
   .character-list-div {
     margin: 0 auto;
     margin-top: 30px;
+    margin-left: 0px;
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(3,250px);
@@ -1150,20 +1164,29 @@ body {
     background-image: linear-gradient(var(--button-color),var(--color-four));
   }
 
+    /* Spoiler Warning Modal section */
+
+  .spoiler-modal-div {
+    width: 400px;
+    height: 275px;
+  }
+
     /* Quotes Section */
 
   .character-quotes-modal-wrapper {
-    position: absolute;
+    position: fixed;
     margin: auto; 
     margin-top: 35px;
-    top: 0%;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%,0%);
+    transform: translate(-50%,-10%);
     background-color: var(--top-bar-color);
     background-image: linear-gradient(var(--color-three),var(--top-bar-color));
-    width: 775px;
-    padding: 40px;
+    width: 500px;
+    max-height: 700px;
     border-radius: 5px;
+    overflow-y: visible;
+    
   }
 
     /* Deaths Section */
@@ -1173,7 +1196,8 @@ body {
     margin-top: 30px;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(4,250px);
+    grid-template-columns: repeat(3,250px);
+    margin-left: 20px;
     background-color: var(--background-color);
   }
 
