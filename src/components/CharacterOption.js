@@ -15,9 +15,11 @@ const CharacterOption = ({imageSource, characterName, extensionType}) => {
         <h3>{characterName}</h3>
     </div></Link>
     :
+    <div className='no-link'>
     <div className='character-option-div'>
         <img alt='' src={imageSource}/>
         <h3>{characterName}</h3>
+    </div>
     </div>
     }
     </div>

@@ -278,12 +278,11 @@ body {
 }
 
 .character-option-div-wrapper {
-  height: 300px;
+  height: 320px;
   width: 300px;
   background-color: var(--button-color);
   background-image: linear-gradient(var(--button-color),var(--color-four));
   margin: 30px;
-  padding-top: 20px;
   border-radius: 5px;
   text-shadow: black 1px 2px 4px;
   box-shadow: black 5px 5px 10px;
@@ -293,14 +292,22 @@ body {
 
 .character-option-div-wrapper:hover {
   cursor: pointer;
-  height: 305px;
+  height: 325px;
   width: 305px;
   margin: 25px;
+}
+
+.character-option-div-wrapper a{
+  padding-top: 20px;
 }
 
 .character-option-div img {
   width: 200px; 
   height: 250px;
+}
+
+.no-link .character-option-div {
+  padding-top: 20px;
 }
 
 .page-title {
@@ -462,12 +469,11 @@ body {
 
 
 .episode-option-wrapper {
-  height: 170px;
+  height: 190px;
   width: 300px;
   background-color: var(--button-color);
   background-image: linear-gradient(var(--button-color),var(--color-four));
   margin: 30px;
-  padding-top: 15px;
   border-radius: 5px;
   text-shadow: black 1px 2px 4px;
   box-shadow: black 5px 5px 10px;
@@ -477,9 +483,14 @@ body {
 
 .episode-option-wrapper:hover {
   cursor: pointer;
-  height: 175px;
+  height: 195px;
   width: 305px;
   margin: 25px;
+}
+
+.episode-option-wrapper a{
+  padding-top: 15px;
+  
 }
 
 
@@ -890,6 +901,37 @@ body {
 
     /* Characters section */
 
+    .characters-page-header {
+      display: block;
+      background-color: var(--top-bar-color);
+      background-image: linear-gradient(var(--color-three),var(--top-bar-color));
+      font-size: 30px;
+      height: 135px;
+      overflow-y: hidden;
+    }
+  
+    .characters-page-header input{
+      display: inline-block;
+      justify-content: center;
+      padding-left: 15px;
+      font-size: 20px;
+      height: 40px;
+      width: 400px;
+      margin-top: 5px;
+      margin-left: 10px;
+      
+      
+    }
+    
+    .characters-page-header-back-and-title {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      margin-left: 10px;
+      
+    
+    }
+
   .character-list-div {
     margin: 0 auto;
     margin-top: 30px;
@@ -901,13 +943,11 @@ body {
   
 
   .character-option-div-wrapper {
-    height: 200px;
+    height: 230px;
     width: 220px;
     background-color: var(--button-color);
     background-image: linear-gradient(var(--button-color),var(--color-four));
     margin: 30px;
-    padding-top: 0px;
-    padding-bottom: 0px;
     border-radius: 5px;
     text-shadow: black 1px 2px 4px;
     box-shadow: black 5px 5px 10px;
@@ -917,15 +957,13 @@ body {
   
   .character-option-div-wrapper:hover {
     cursor: pointer;
-    height: 205px;
+    height: 235px;
     width: 225px;
     margin: 25px;
   }
-
+  
   .character-option-div-wrapper a{
-    height: 200px;
-    width: 220px;
-    overflow-y: hidden;
+    padding-top: 20px;
   }
 
   .character-option-div {
@@ -937,25 +975,129 @@ body {
     height: 175px;
   }
 
+  /* Character Details Section */
+
   .character-details-loaded-div img {
-    width: 500px;
-    height: 100%;
+    width: 300px;
+    height: 400px;
+    margin-bottom: -30px;
   }
+
+
+  .character-details-page-div {
+    display: flex;
+    background-color: var(--background-color);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .character-details-page-div .back-button{
+    margin-left: 10px;
+  }
+  
+  .character-details-page-div .back-button-wrapper{
+    
+    overflow-x: visible;
+  
+  }
+  
+  .character-details-loaded-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    width: 100%;
+    
+  }
+  
+  .character-details-loaded-div {
+    display: block;
+    /* overflow-y: hidden; */
+  }
+
+  .character-details-loaded-div h1 {
+    margin-top:-10px;
+  }
+  
+  .character-details-loaded-div h3 {
+    margin-top: 5px;
+  }
+  
+
+  
+  
+  
+  .character-details-spoiler-div {
+    background-color: var(--top-bar-color);
+    background-image: linear-gradient(var(--color-three),var(--top-bar-color));
+    justify-content: center;
+    padding: 40px;
+    margin-top: 10px;
+    border-radius: 5px;
+    height: 175px;
+    overflow-y: hidden;
+    
+  }
+  
+  
+  
+  .character-details-details-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .character-details-details {
+    margin: 50px;
+    margin-left: 25px;
+    width: 500px;
+  }
+  
+  .character-details-details h1{
+    font-size: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .character-details-details h2{
+    font-size: 30px;
+  }
+  
+
+  
 
   /* episode details section */
 
+  .episode-details-options-div {
+    display: block;
+  }
+
+  .episode-details-instructions-div {
+    display: flex;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%,0px);
+    margin: 10px;
+    width: fit-content;
+
+  }
+
   .episode-details-options-div img{
-  height: 250px;
-  width: 275px;
+  height: 325px;
+  width: 425px;
   margin: 10px;
-  margin-left: 0px
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: 0px;
 
   }
 
   .episode-details-options-div img:hover{
-    height: 260px;
-    width: 285px;
+    height: 330px;
+    width: 430px;
     margin: 5px;
+    margin-top: 15px;
+    margin-bottom: 30px;
     margin-left: -5px;
 
   }
@@ -966,8 +1108,28 @@ body {
     margin-left: -20px;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(3,340px);
+    grid-template-columns: repeat(2,350px);
     background-color: var(--background-color);
+  }
+
+  .page-background {
+    min-width: auto;
+    
+  }
+
+  
+
+  .better-call-saul-page .nav-bar-buttons-div {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4,190px);
+    height: fit-content;
+  }
+
+
+  .arrow-choice-button {
+    display: none;
+    
   }
 
     /* nav bar buttons */

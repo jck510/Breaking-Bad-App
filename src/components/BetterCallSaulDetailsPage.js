@@ -166,7 +166,7 @@ const BetterCallSaulDetailsPage = () => {
             <div><Link to='/episode-details' className='links'><FaRegArrowAltCircleLeft className='back-button'/></Link></div>
             <h1 className='page-title'>Better Call Saul</h1>
         </div>
-        <div className='header-extension'>
+        <div className='header-extension better-call-saul-page'>
             <div className='nav-bar-buttons-div'>
                 {/* The following links have a ternary operator that will determine whether the page needs to be reloaded to the season extension or go back to the base extension */}
                 <div><Link to={(seasonFilter !== '1') ? '/episode-details/better-call-saul/season/1' : '/episode-details/better-call-saul'} onClick={() => toggleFilterPress('1')} className={seasonOneClass}>Season 1</Link></div>
