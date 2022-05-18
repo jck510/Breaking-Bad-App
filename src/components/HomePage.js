@@ -33,6 +33,7 @@ const HomePage = () => {
           {/* will change the link for the h1 to a refresh onclick listener */}
           {/* The following links are wrapped in wrapper divs */}
             <div><h1 className='page-title'>Breaking Bad Data Lab</h1></div>
+            <div className='nav-bar-buttons-wrapper'>
             <div className='nav-bar-buttons-div'>
             <div><Link to='/characters'>Characters</Link></div>
             <div><Link to='/episode-details'>Episode Details</Link></div>
@@ -41,7 +42,7 @@ const HomePage = () => {
             <div><Link to='/deaths'><button>Deaths</button></Link></div> */}
             <div><button onClick={() => setSpoilerPageActive('quotes')}>Quotes</button></div>
             <div><button onClick={() => setSpoilerPageActive('deaths')}>Deaths</button></div>
-
+            </div>
             </div>
           
             
