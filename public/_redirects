@@ -1,14 +1,1 @@
-/characters /characters
-/characters/:name /characters/:name
-/episode-details /episode-details
-/episode-details/breaking-bad /episode-details/breaking-bad
-/episode-details/breaking-bad/season/:seasonNumber /episode-details/breaking-bad/season/:seasonNumber
-/episode-details/id/:episodeId /episode-details/id/:episodeId
-/episode-details/better-call-saul /episode-details/better-call-saul
-/episode-details/better-call-saul/season/:seasonNumber /episode-details/better-call-saul/season/:seasonNumber
-/episode-details/id/:episodeId /episode-details/id/:episodeId
-/quotes /quotes
-/quotes/:name /quotes/:name
-/quotes/random-quote/:id /quotes/random-quote/:id
-/deaths /deaths
-/deaths/id/:id /deaths/id/:id
+/* /index.html 200
