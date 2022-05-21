@@ -1454,6 +1454,7 @@ body {
     .episode-details-page-div {
       overflow-y: visible;
       height: fit-content;
+      min-height: 100%;
     }
 
     .episode-details-page-div .back-button {
@@ -1496,11 +1497,13 @@ body {
       margin-right: -5px;
   
     }
+
   
     .episode-list-div {
       margin: 0 auto;
-      margin-top: 20px;
-      margin-left: -20px;
+      margin-top: 15px;
+      margin-left: -30px;
+      margin-right: 10px;
       display: grid;
       justify-content: center;
       grid-template-columns: repeat(2,175px);
@@ -1508,12 +1511,12 @@ body {
     }
 
     .episode-option-wrapper {
-      width: 150px;
+      width: 155px;
       height: 175px;
     }
 
     .episode-option-wrapper:hover {
-      width: 155px;
+      width: 160px;
       height: 180px;
     }
 
@@ -1564,6 +1567,12 @@ body {
     .arrow-choice-button {
       display: none;
       
+    }
+
+
+    .episode-description {
+      margin-top: 10px;
+      margin-bottom: -20px;
     }
 
     
@@ -1707,5 +1716,522 @@ body {
       font-size: 40px;
     }
 
+  
+}
+
+@media screen and (min-width: 320px) and (max-width: 720px) and (orientation: landscape) {
+
+  .main-photos-list img {
+    width: 320px;
+    /* height: var(--main-picture-desktop-height); */
+    height: 160px;
+    display: block;
+    overflow-x: visible;
+  }
+
+  .auto-slider{
+    display: flex;
+    margin: 150px auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    /* outline: 1px solid red; */
+    width: 320px;
+    /* height: var(--main-picture-desktop-height); */
+    height: 220px;
+    overflow-x: hidden;
+  
+    
+  }
+  
+  @keyframes slide{
+    10%{
+      transform: translateX(0);
+    }
+    15%, 30%{
+      transform: translateX(-320px);
+    }
+    35%, 50%{
+      transform: translateX(-640px);
+    }
+    55%, 70%{
+      transform: translateX(-960px);
+    }
+    75%, 90%{
+      transform: translateX(0);
+    }
+  }
+
+  .main-footer-div {
+    height: 35px;
+  }
+
+    /* Characters section */
+
+    .characters-page-header {
+      display: block;
+      background-color: var(--top-bar-color);
+      background-image: linear-gradient(var(--color-three),var(--top-bar-color));
+      font-size: 30px;
+      height: 135px;
+      overflow-y: hidden;
+    }
+  
+    .characters-page-header input{
+      display: inline-block;
+      justify-content: center;
+      padding-left: 15px;
+      font-size: 20px;
+      height: 40px;
+      width: 80%;
+      margin-top: 5px;
+      margin-left: 20px;
+      
+      
+    }
+    
+    .characters-page-header-back-and-title {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      margin-left: 5px;
+      
+    
+    }
+
+
+  .character-list-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .character-list-div {
+    margin: 0 auto;
+    margin-top: 15px;
+    
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3,200px);
+    overflow-x: visible;
+  }
+  
+
+  .character-option-div-wrapper {
+    height: 160px;
+    width: 160px;
+    background-color: var(--button-color);
+    background-image: linear-gradient(var(--button-color),var(--color-four));
+    margin: 30px;
+    border-radius: 5px;
+    text-shadow: black 1px 2px 4px;
+    box-shadow: black 5px 5px 10px;
+    overflow-y: hidden;
+    margin-bottom: 20px;
+    margin-top: 10px
+  }
+  
+  .character-option-div-wrapper:hover {
+    cursor: pointer;
+    height: 165px;
+    width: 165px;
+    margin: 25px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+  }
+  
+  .character-option-div-wrapper a{
+    padding-top: 10px;
+  }
+
+  .character-option-div {
+    overflow-x: hidden;
+  }
+
+  .character-option-div img {
+    width: 75px; 
+    height: 100px;
+  }
+
+  /* Character Details Section */
+
+  .character-details-loaded-div img {
+    width: 275px;
+    height: 380px;
+    margin-bottom: -30px;
+    margin-top: 15px;
+    margin-left: 30px;
+  }
+
+
+  .character-details-page-div {
+    display: block;
+    background-color: var(--background-color);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .character-details-page-div .back-button{
+    
+    margin-left: 10px;
+  }
+  
+  .character-details-page-div .back-button-wrapper{
+    display: flex;
+    justify-content: left;
+    overflow-x: visible;
+  
+  }
+  
+  .character-details-loaded-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    min-width: 100%;
+    
+    
+  }
+  
+  .character-details-loaded-div {
+    display: flex;
+    
+    /* overflow-y: hidden; */
+  }
+
+  .character-details-loaded-div h1 {
+    margin-top:-10px;
+    
+  }
+
+  .character-details-details-wrapper{
+    margin-top: -40px;
+    width: 450px;
+    
+  } 
+
+
+  
+  .character-details-loaded-div h3 {
+    margin-top: 10px;
+  }
+  
+
+  
+  
+  
+  .character-details-spoiler-div {
+    background-color: var(--top-bar-color);
+    background-image: linear-gradient(var(--color-three),var(--top-bar-color));
+    justify-content: center;
+    padding: 40px;
+    padding-top: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    height: 90px;
+    overflow-y: visible;
+    
+  }
+
+  .character-details-spoiler-div button{
+    margin-top: 0px;
+  }
+  
+  .character-details-spoiler-div h3 {
+    margin-bottom: 25px;
+  }
+  
+  
+  .character-details-details-wrapper {
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  .character-details-details {
+    margin: 50px;
+    width: 100%;
+  }
+  
+  .character-details-details h1{
+    padding-top: 5px;
+    font-size: 35px;
+  }
+  
+  .character-details-details h2{
+    font-size: 25px;
+  }
+  
+
+  
+
+  /* episode details section */
+
+  .standard-header {
+    min-height: 100px;
+    height: fit-content;
+    
+  }
+
+  .episode-details-page-div {
+    overflow-y: visible;
+    height: fit-content;
+    min-height: 100%;
+  }
+
+  .episode-details-page-div .back-button {
+    margin-right: 25px;
+  }
+
+  .episode-details-options-div {
+    display: flex;
+    overflow-y: hidden;
+    margin-top: 15px;
+  }
+
+  .episode-details-instructions-div {
+    /* 
+    display: flex;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%,0px);
+    margin: 10px;
+    width: fit-content;
+     */
+     
+     justify-content: center;
+     width: 300px;
+
+  }
+
+  .episode-details-options-div img{
+  height: 165px;
+  width: 175px;
+  margin-top: -10px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+  margin-right: 50px;
+
+  }
+
+  .episode-details-options-div img:hover{
+    height: 170px;
+    width: 180px;
+    margin-top: -5px;
+    margin-bottom: 25px;
+    margin-left: 15px;
+    margin-right: 45px;
+
+  }
+
+  .episode-list-div {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-left: -20px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3,200px);
+    background-color: var(--background-color);
+  }
+
+  .episode-option-wrapper {
+    width: 155px;
+    height: 175px;
+  }
+
+  .episode-option-wrapper:hover {
+    width: 160px;
+    height: 180px;
+  }
+
+  .episode-option-wrapper a{
+    padding-top: 0px;
+    overflow-y: hidden;
+  }
+
+  .episode-option-div {
+    overflow-y: hidden;
+  }
+  
+
+  .page-background {
+    min-width: auto;
+    
+  }
+
+
+
+  .breaking-bad-page .nav-bar-buttons-div {
+    display: grid;
+    justify-content: left;
+    grid-template-columns: repeat(5,120px);
+    height: fit-content;
+  }
+
+  .breaking-bad-page .nav-bar-buttons-div a{
+    width: 90px;
+  }
+
+  .better-call-saul-page .back-button {
+    margin-right: 25px;
+  }
+
+  .better-call-saul-page .nav-bar-buttons-div {
+    display: grid;
+    justify-content: left;
+    grid-template-columns: repeat(5,120px);
+    height: fit-content;
+  }
+
+  .better-call-saul-page .nav-bar-buttons-div a{
+    width: 90px;
+  }
+
+
+  .episode-description {
+    margin-top: 10px;
+    margin-bottom: -10px;
+  }
+  
+
+    /* nav bar buttons */
+
+  .nav-bar-buttons-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-bar-buttons-div button:hover{
+    background-color: var(--button-color);
+    background-image: linear-gradient(var(--button-color),var(--color-four));
+  }
+
+  .nav-bar-buttons-div .selected-button {
+    background-color: var(--button-color);
+    background-image: linear-gradient(var(--button-color),var(--color-four));
+    
+  }
+
+  .nav-bar-buttons-div a:hover {
+    background-color: var(--button-color);
+    background-image: linear-gradient(var(--button-color),var(--color-four));
+  }
+
+
+
+    /* Spoiler Warning Modal section */
+
+  .spoiler-modal-div {
+    width: 345px;
+    height: 275px;
+    
+  }
+
+  .spoiler-modal-content-div {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    overflow-y: hidden;
+  }
+
+    /* Quotes Section */
+
+  .quotes-instructions-div {
+    margin-top: -5px;
+    margin-bottom: 0px;
+  }
+
+  .quotes-instructions-div h2 {
+    margin-top: 5px;
+  }
+
+  .character-quotes-modal-wrapper {
+    /* display: flex;
+    justify-content: center; */
+    position: fixed;
+    margin: auto; 
+    margin-top: 20px;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%,-10%);
+    background-color: var(--top-bar-color);
+    background-image: linear-gradient(var(--color-three),var(--top-bar-color));
+    width: 250px;
+    max-height: 225px;
+    border-radius: 5px;
+    overflow-y: visible;
+    padding-top: 10px;
+
+    
+  }
+
+
+  .character-quotes-modal-wrapper img {
+    height: 200px;
+    width: 150px;
+  }
+
+  .character-quotes-modal-div li{
+    margin-top: 25px;
+  }
+
+  
+    /* Deaths Section */
+
+  .deaths-page-header{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .deaths-page-header .page-title {
+    width: fit-content;
+  }
+
+  .deaths-page-header h3{
+    font-size: 25px;
+    width: 275px; 
+  }
+
+  .deaths-page-header h2 {
+    font-size: 30px;
+  }
+
+  .deaths-list-div {
+    margin: 0 auto;
+    margin-top: 20px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3,190px);
+    margin-left: 20px;
+    background-color: var(--background-color);
+  }
+
+
+  .death-option-wrapper {
+    border-radius: 5px;
+    background-color: var(--button-color);
+    background-image: linear-gradient(var(--button-color),var(--color-four));
+    height: 150px;
+    width: 150px;
+    margin: 10px;
+    overflow-y: hidden;
+  }
+  
+  .death-option-wrapper:hover {
+    cursor: pointer;
+    height: 155px;
+    width: 155px;
+    margin: 5px;
+  }
+
+  .death-modal-div {
+    margin-top: 5px;
+    width: 275px;
+    max-height: 200px;
+  }
+
+  .death-modal-div h1 {
+    font-size: 40px;
+  }
   
 }
