@@ -1569,6 +1569,12 @@ body {
       
     }
 
+    /* episode page */
+
+
+    .episode-page-wrapper .page-background .standard-header .page-title{
+      font-size: 27px;
+    }
 
     .episode-description {
       margin-top: 10px;
@@ -2089,10 +2095,23 @@ body {
   }
 
 
+  /* episode page */
+
+  .episode-page-wrapper .page-background .standard-header .back-button{
+      margin-right: 20px;
+  }
+
+  .episode-page-wrapper .page-background .standard-header .back-button:hover{
+      margin-right: 15px;
+  }
+
   .episode-description {
     margin-top: 10px;
     margin-bottom: -10px;
   }
+
+
+
   
 
     /* nav bar buttons */

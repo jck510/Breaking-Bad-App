@@ -121,7 +121,7 @@ const EpisodePage = () => {
 //   }
 
   return (
-    <div>
+    <div className='episode-page-wrapper'>
 
     {invalidCall ? <InvalidPage /> : 
     
